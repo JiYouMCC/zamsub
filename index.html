@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>赞服地铁通</title>
+
+    </head>
+<body>
+    <h1>赞服地铁通</h1>
+    <table>
+        <tr>
+            <td><b>起点</b></td>
+            <td>线路</td>
+            <td><select id="start_lines" onchange="updateStation('start');"></select></td></td>
+            <td>站点</td>
+            <td><select id="start_stations"></select></td>
+        </tr>
+        <tr>
+            <td><b>终点</b></td>
+            <td>线路</td>
+            <td><select id="end_lines" onchange="updateStation('end');"></select></td>
+            <td>站点</td>
+            <td><select id="end_stations"></select></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="getResult();">一点就通</button></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><b>路径</b></td>
+            <td><div id="result_path"></div></td>
+        </tr>
+        <tr>
+            <td><b>最短距离</b></td>
+            <td><div id="result_length"></div></td>
+        </tr>
+    </table>
+</body>
+<script src="js/data.js"></script>
+<script src="js/path.js"></script>
+</html>
