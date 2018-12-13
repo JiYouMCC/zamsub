@@ -93,7 +93,7 @@ var findPath = function(graph, start, end) {
 
 var start_lines = document.getElementById("start_lines");
 var end_lines = document.getElementById("end_lines");
-for (line in subData['lines']) {    
+for (line in subData['lines']) {
     var para = document.createElement("option");
     para.value = line;
     para.text = line;
@@ -121,7 +121,6 @@ var updateStation = function(type) {
     }
 }
 
-
 function getResult() {
     var start = document.getElementById("start_stations").value;
     var end = document.getElementById("end_stations").value;
@@ -129,7 +128,7 @@ function getResult() {
     var length = result[0][end];
     var path = ToArray(result[1], end);
     document.getElementById("result_path").innerText = path.join(' -> ');
-    document.getElementById("result_length").innerText = length.toString();
+    document.getElementById("result_length").innerText = length.toString() + "(约" + Math.floor(length / 60 / 8) + "分钟)";
 }
 
 updateStation('start');
