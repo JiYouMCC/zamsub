@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+</head>
+<body>
+<select id="start">
+</select>
+<select id="end">
+</select>
+<button onclick="getResult();">enter</button>
+<div id="result"></div>
+</body>
+<script type="text/javascript">
+    // class 坐标
+function Location(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+}
+
+// class 站
+function Station(name, locations, description) {
+    this.name = name;
+    this.locations = locations;
+    this.description = description
+}
+
+// 有权重的有向图
+function Graph() {
+    this.nodes = [];
+    this.edges = {};
+    this.addNode = function(nodeName) {
+        this.nodes.push(nodeName);
+    };
+    this.addEdge = function(fromNodeName, toNodeName, length) {
+        if (!this.edges[fromNodeName]) {
+            this.edges[fromNodeName] = {};
+        }
+        this.edges[fromNodeName][toNodeName] = length;
+    };
+}
+
+function minDist(q, dist) {
+    var minNode = undefined;
+    for (var i = 0; i < q.length; i++) {
+        var node = q[i];
+        if (minNode == undefined) {
+            minNode = node;
+        } else if (dist[node] < dist[minNode]) {
+            minNode = node;
+        }
+    }
+    return minNode;
+}
+
+function Dijkstra(graph, sourceName) {
+    var q = [];
+    var dist = {};
+    var prev = {};
+
+    for (var i = 0; i < graph.nodes.length; i++) {
+        var v =graph.nodes[i];
+        dist[v] = Number.MAX_VALUE;
+        prev[v] = Number.MAX_VALUE;
+        q.push(v);
+    }
+
+    dist[sourceName] = 0;
+
+    while(q.length > 0){
+        var u = minDist(q,dist);
+        q.splice(q.indexOf(u),1);
+        if (graph.edges[u]) {
+            for (toNodeName in graph.edges[u]) {
+                var length = graph.edges[u][toNodeName];
+                var alt = dist[u] + length;
+                if (alt < dist[toNodeName]) {
+                    dist[toNodeName] = alt;
+                    prev[toNodeName] = u;
+                }
+            }
+        }
+    }
+    return [dist,prev];
+}
+
+
+/*var stations = [
+    new Station('城北枢纽', new Location(-410, 40, -889), '彩虹半岛地铁站'),
+    new Station('赞服国际机场', new Location(-410, 40, -889), '彩虹半岛地铁站'),
+    new Station('出生点', new Location(-410, 40, -889), '彩虹半岛地铁站'),
+    new Station('漆黑之翼', new Location(-410, 40, -889), '彩虹半岛地铁站'),
+    new Station('未名阁', new Location(-410, 40, -889), '彩虹半岛地铁站'),
+    new Station('中央枢纽', new Location(-410, 40, -889), '彩虹半岛地铁站')
+]*/
+
+/*function GetStation(name) {
+    for (var i = 0; i < stations.length; i++) {
+        station = stations[i];
+        if (station.name == name) {
+            return station;
+        }
+    }
+}*/
+
+function ToArray(prev, fromNode) {
+    var prevNode = prev[fromNode];
+    var route = [fromNode];
+    while (prevNode != Number.MAX_VALUE){
+        route.push(prevNode)
+        var temp = prevNode;
+        prevNode = prev[temp]
+    }
+    route = route.reverse();
+    return route;
+}
+
+
+var graph = new Graph();
+graph.addNode("城北枢纽");
+graph.addNode("赞服国际机场");
+graph.addNode("出生点");
+graph.addNode("漆黑之翼");
+graph.addNode("未名阁");
+graph.addNode("中央枢纽");
+
+graph.addEdge("城北枢纽","赞服国际机场",466 );
+graph.addEdge("赞服国际机场","城北枢纽",466 );
+graph.addEdge("赞服国际机场","出生点",204 );
+graph.addEdge("出生点","赞服国际机场",204 );
+graph.addEdge("出生点","漆黑之翼",700 );
+graph.addEdge("漆黑之翼","出生点",700 );
+graph.addEdge("中央枢纽","出生点",810 );
+graph.addEdge("出生点","中央枢纽",810 );
+graph.addEdge("未名阁","出生点",1277 );
+graph.addEdge("出生点","未名阁",1277 );
+
+var findPath = function(graph, start, end) {
+    return Dijkstra(graph, start);
+}
+
+stations = ["城北枢纽",
+"赞服国际机场",
+"出生点",
+"漆黑之翼",
+"未名阁",
+"中央枢纽"
+]
+
+var start_s = document.getElementById("start");
+var start_e = document.getElementById("end");
+for (var i = 0; i < stations.length; i++) {
+    s = stations[i];
+    var para = document.createElement("option");
+    para.value = s;
+    para.text = s;
+    var para1 = document.createElement("option");
+    para1.value = s;
+    para1.text = s;
+    start_s.appendChild(para);
+    start_e.appendChild(para1);
+}
+
+function getResult() {
+    var start = document.getElementById("start").value;
+    var end = document.getElementById("end").value;
+    var result = findPath(graph, start, end);
+    var length = result[0][end];
+    var path = ToArray(result[1], end);
+    var r = document.getElementById("result");
+    var paths = "";
+    for (p in path) {
+        paths += path[p] + ',';
+    }
+    var str = "从 城北枢纽 到 未名阁 的最短路径是 [城北枢纽 -> 赞服国际机场 -> 出生点 -> 未名阁] ，距离为 1480"
+    r.innerHTML = "从 "+ start + " 到 "+ end +" 的最短路径是[" + paths +"]，距离为"+ length;
+
+
+}
+
+</script>
+</html>
