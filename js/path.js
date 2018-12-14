@@ -1,17 +1,17 @@
 function Graph() {
     this.nodes = [];
     this.edges = {};
-    this.addNode = function(nodeName) {
-        if (!this.nodes.includes(nodeName)) {
-            this.nodes.push(nodeName);
+    this.addNode = function(node) {
+        if (!this.nodes.includes(node)) {
+            this.nodes.push(node);
         }
 
     };
-    this.addEdge = function(fromNodeName, toNodeName, length) {
-        if (!this.edges[fromNodeName]) {
-            this.edges[fromNodeName] = {};
+    this.addEdge = function(fromNode, toNode, length) {
+        if (!this.edges[fromNode]) {
+            this.edges[fromNode] = {};
         }
-        this.edges[fromNodeName][toNodeName] = length;
+        this.edges[fromNode][toNode] = length;
     };
 }
 
@@ -71,30 +71,38 @@ function ToArray(prev, fromNode) {
     return route;
 }
 
-
-var graph = new Graph();
-
-for (line in subData['lines']) {
-    for (station in subData['lines'][line]) {
-        graph.addNode(subData['lines'][line][station]);
+function InitGraph(data) {
+    var graph = new Graph();
+    for (line in data['lines']) {
+        for (station in data['lines'][line]) {
+            graph.addNode(data['lines'][line][station]);
+        }
     }
+
+    for (var i = 0; i < data['paths'].length; i++) {
+        var edge = data['paths'][i];
+        graph.addEdge(edge[0], edge[1], edge[2])
+    }
+
+    return graph;
 }
 
-for (var i = 0; i < subData['paths'].length; i++) {
-    var edge = subData['paths'][i];
-    graph.addEdge(edge[0], edge[1], edge[2])
-}
-
-
-var findPath = function(graph, start, end) {
-    return Dijkstra(graph, start);
-}
+var graph = InitGraph(subData);
 
 
 var start_lines = document.getElementById("start_lines");
 var end_lines = document.getElementById("end_lines");
-for (line in subData['lines']) {    
-    var para = document.createElement("option");
+var para = document.createElement("option");
+para.value = 'all';
+para.text = "（所有线路）";
+start_lines.appendChild(para);
+
+para = document.createElement("option");
+para.value = 'all';
+para.text = "（所有线路）";
+end_lines.appendChild(para);
+for (line in subData['lines']) {
+    para = document.createElement("option");
     para.value = line;
     para.text = line;
     start_lines.appendChild(para);
@@ -107,10 +115,21 @@ for (line in subData['lines']) {
 
 var updateStation = function(type) {
     var station_select = document.getElementById(type + "_stations");
+    var station_select_input = document.getElementById(type + "_stations_input");
     var line_select = document.getElementById(type + "_lines");
     var line = line_select.value;
-    station_select.value = '';
-    station_select.innerHTML = '';
+    station_select_input.value = '';
+
+    if (line == "all") {
+        for (var i = 0; i < graph.nodes.length; i++) {
+            var station = graph.nodes[i];
+            var para = document.createElement("option");
+            para.value = station;
+            para.text = station;
+            station_select.appendChild(para);
+        }
+        return;
+    }
 
     for (var i = 0; i < subData['lines'][line].length; i++) {
         var station = subData['lines'][line][i];
@@ -131,10 +150,18 @@ var findLine = function(station1, station2) {
 }
 
 function getResult() {
-    var start = document.getElementById("start_stations").value;
-    var end = document.getElementById("end_stations").value;
-    var result = findPath(graph, start, end);
+    var start = document.getElementById("start_stations_input").value;
+    var end = document.getElementById("end_stations_input").value;
+    if (!start || !end) {
+        return;
+    }
+    var result = Dijkstra(graph, start);;
     var length = result[0][end];
+    if (length == Number.MAX_VALUE) {
+        document.getElementById("result_path").innerText = "步行，飞行或游泳";
+        document.getElementById("result_length").innerText = "反正坐地铁到不了，你可以跳车试一试"
+        return;
+    }
     var path = ToArray(result[1], end);
     var paths = path[0];
     for (var i = 0; i < path.length - 1; i++) {
