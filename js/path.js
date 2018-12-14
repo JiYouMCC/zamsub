@@ -174,6 +174,7 @@ function getResult() {
     }
 
     document.getElementById("result_path").innerText = paths;
+    document.getElementById("result_path").rows = path.length; 
     document.getElementById("result_length").innerText = length.toString() + "(约" + Math.floor(length / 60 / 8) + "分钟)";
 }
 

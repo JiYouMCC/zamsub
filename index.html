@@ -1,44 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh_cn">
     <head>
         <meta charset= "utf-8">
         <meta http-equiv="X-UA-Coompatible">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>赞服地铁通</title>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
-<body>
-    <h1>赞服地铁通</h1>
-    <table>
-        <tr>
-            <td><b>起点</b></td>
-            <td>线路</td>
-            <td><select id="start_lines" onchange="updateStation('start', subData);"></select></td></td>
-            <td>站点</td>
-            <td><input id="start_stations_input" list="start_stations" /><datalist id="start_stations"></datalist></td>
-        </tr>
-        <tr>
-            <td><b>终点</b></td>
-            <td>线路</td>
-            <td><select id="end_lines" onchange="updateStation('end', subData);"></select></td>
-            <td>站点</td>
-            <td><input id="end_stations_input" list="end_stations" /><datalist id="end_stations"></datalist></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button onclick="getResult();">一点就通</button></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td><b>路径</b></td>
-            <td><div id="result_path"></div></td>
-        </tr>
-        <tr>
-            <td><b>最短距离</b></td>
-            <td><div id="result_length"></div></td>
-        </tr>
-    </table>
-</body>
-<script src="js/data.js"></script>
-<script src="js/path.js"></script>
+    <body>
+        <div class="container mx-auto">
+            <div class="row"><h1>赞服地铁通</h1></div>
+            <div class="panel">
+                <div class="row"><b>起点</b></div>
+                <div class="form-group">
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">线路</div>
+                            </div>
+                            <select class="form-control" id="start_lines" onchange="updateStation('start', subData);"></select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">站点</div>
+                            </div>
+                            <input class="form-control" id="start_stations_input" list="start_stations" /><datalist id="start_stations"></datalist>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><b>终点</b></div>
+                <div class="form-group">
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">线路</div>
+                            </div>
+                            <select class="form-control" id="end_lines" onchange="updateStation('end', subData);"></select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">站点</div>
+                            </div>
+                            <input class="form-control" id="end_stations_input" list="end_stations" /><datalist id="end_stations"></datalist>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-secondary" onclick="getResult();">一点就通</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><b>路径</b></div>
+                    </div>
+                    <textarea class="form-control" disabled type="text" id="result_path"></textarea></div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><b>距离</b></div>
+                    </div>
+                    <input class="form-control" type="text" id="result_length" disabled=""></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/data.js"></script>
+    <script src="js/path.js"></script>
 </html>
