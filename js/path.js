@@ -15,7 +15,6 @@ function Graph() {
     };
 }
 
-
 function Dijkstra(graph, sourceName) {
     var q = [];
     var dist = {};
@@ -87,33 +86,35 @@ function InitGraph(data) {
     return graph;
 }
 
-var graph = InitGraph(subData);
 
-
-var start_lines = document.getElementById("start_lines");
-var end_lines = document.getElementById("end_lines");
-var para = document.createElement("option");
-para.value = 'all';
-para.text = "（所有线路）";
-start_lines.appendChild(para);
-
-para = document.createElement("option");
-para.value = 'all';
-para.text = "（所有线路）";
-end_lines.appendChild(para);
-for (line in subData['lines']) {
-    para = document.createElement("option");
-    para.value = line;
-    para.text = line;
+function InitDom(data) {
+    var start_lines = document.getElementById("start_lines");
+    var end_lines = document.getElementById("end_lines");
+    var para = document.createElement("option");
+    para.value = 'all';
+    para.text = "（所有线路）";
     start_lines.appendChild(para);
 
     para = document.createElement("option");
-    para.value = line;
-    para.text = line;
+    para.value = 'all';
+    para.text = "（所有线路）";
     end_lines.appendChild(para);
+    for (line in data['lines']) {
+        para = document.createElement("option");
+        para.value = line;
+        para.text = line;
+        start_lines.appendChild(para);
+
+        para = document.createElement("option");
+        para.value = line;
+        para.text = line;
+        end_lines.appendChild(para);
+    }
+    updateStation('start', data);
+    updateStation('end', data);
 }
 
-var updateStation = function(type) {
+function updateStation(type, data) {
     var station_select = document.getElementById(type + "_stations");
     var station_select_input = document.getElementById(type + "_stations_input");
     var line_select = document.getElementById(type + "_lines");
@@ -132,8 +133,8 @@ var updateStation = function(type) {
         return;
     }
 
-    for (var i = 0; i < subData['lines'][line].length; i++) {
-        var station = subData['lines'][line][i];
+    for (var i = 0; i < data['lines'][line].length; i++) {
+        var station = data['lines'][line][i];
         var para = document.createElement("option");
         para.value = station;
         para.text = station;
@@ -141,9 +142,9 @@ var updateStation = function(type) {
     }
 }
 
-var findLine = function(station1, station2) {
-    for (line in subData['lines']) {
-        var stations = subData['lines'][line];
+function findLine(station1, station2, data) {
+    for (line in data['lines']) {
+        var stations = data['lines'][line];
         if (stations.includes(station1) && stations.includes(station2)) {
             return line;
         }
@@ -168,7 +169,7 @@ function getResult() {
     for (var i = 0; i < path.length - 1; i++) {
         var s = path[i];
         var t = path[i + 1];
-        paths += ' --(' + findLine(s, t) + ')--> \n' + path[i + 1]
+        paths += ' --(' + findLine(s, t,subData) + ')--> \n' + path[i + 1]
 
     }
 
@@ -176,6 +177,6 @@ function getResult() {
     document.getElementById("result_length").innerText = length.toString() + "(约" + Math.floor(length / 60 / 8) + "分钟)";
 }
 
+var graph = InitGraph(subData);
 
-updateStation('start');
-updateStation('end');
+InitDom(subData);
