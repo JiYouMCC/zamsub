@@ -119,6 +119,7 @@ var updateStation = function(type) {
     var line_select = document.getElementById(type + "_lines");
     var line = line_select.value;
     station_select_input.value = '';
+    station_select.innerText = '';
 
     if (line == "all") {
         for (var i = 0; i < graph.nodes.length; i++) {
