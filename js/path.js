@@ -93,7 +93,7 @@ var findPath = function(graph, start, end) {
 
 var start_lines = document.getElementById("start_lines");
 var end_lines = document.getElementById("end_lines");
-for (line in subData['lines']) {    
+for (line in subData['lines']) {
     var para = document.createElement("option");
     para.value = line;
     para.text = line;
@@ -121,6 +121,14 @@ var updateStation = function(type) {
     }
 }
 
+var findLine = function(station1, station2) {
+    for (line in subData['lines']) {
+        var stations = subData['lines'][line];
+        if (stations.includes(station1) && stations.includes(station2)) {
+            return line;
+        }
+    }
+}
 
 function getResult() {
     var start = document.getElementById("start_stations").value;
@@ -128,9 +136,20 @@ function getResult() {
     var result = findPath(graph, start, end);
     var length = result[0][end];
     var path = ToArray(result[1], end);
-    document.getElementById("result_path").innerText = path.join(' -> ');
-    document.getElementById("result_length").innerText = length.toString();
+    var paths = path[0];
+    for (var i = 0; i < path.length - 1; i++) {
+        var s = path[i];
+        var t = path[i + 1];
+        paths += ' --(' + findLine(s, t) + ')--> \n' + path[i + 1]
+
+    }
+
+    document.getElementById("result_path").innerText = paths;
+    document.getElementById("result_length").innerText = length.toString() + "(约" + Math.floor(length / 60 / 8) + "分钟)";
 }
+
+
 
 updateStation('start');
 updateStation('end');
+findLine('城北枢纽', '赞服国际机场');
