@@ -152,7 +152,7 @@ var findLine = function(station1, station2) {
 function getResult() {
     var start = document.getElementById("start_stations_input").value;
     var end = document.getElementById("end_stations_input").value;
-    if (!start || !end) {
+    if (!start || !end || !graph.nodes.includes(start) || !graph.nodes.includes(end)) {
         return;
     }
     var result = Dijkstra(graph, start);;
