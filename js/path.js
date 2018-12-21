@@ -121,6 +121,7 @@ function updateStation(type, data) {
     var line = line_select.value;
     station_select_input.value = '';
     station_select.innerText = '';
+    var select = document.createElement("select");
 
     if (line == "all") {
         for (var i = 0; i < graph.nodes.length; i++) {
@@ -128,8 +129,9 @@ function updateStation(type, data) {
             var para = document.createElement("option");
             para.value = station;
             para.text = station;
-            station_select.appendChild(para);
+            select.appendChild(para);
         }
+        station_select.appendChild(select);
         return;
     }
 
@@ -138,7 +140,8 @@ function updateStation(type, data) {
         var para = document.createElement("option");
         para.value = station;
         para.text = station;
-        station_select.appendChild(para);
+        select.appendChild(para);
+        station_select.appendChild(select);
     }
 }
 
