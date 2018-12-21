@@ -61,7 +61,7 @@ var subData = {
             'location': [2280, 40, 2816]
         },
         '夏尔村民农场南': {
-            'location': [2880, 40, 2816]
+            'location': [2800, 40, 2816]
         },
         'slantyone的家': {
             'location': [3376, 40, 2816]
