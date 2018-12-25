@@ -151,6 +151,23 @@ function findLine(station1, station2, data) {
     }
 }
 
+function ConvertTime(length) {
+	var minute = Math.floor(length / 60 / 8);
+    var length_sec = length - minute * 60 * 8;
+	var sec = Math.floor(length_sec / 8);
+    var result = "";
+    if (minute > 0) {
+        result += minute + "分";
+    }
+    if (sec > 0) {
+        result += sec + "秒";
+    }
+    if (result == "") {
+        result = "瞬间"
+    }
+    return result;
+}
+
 function getResult() {
     var start = document.getElementById("start_stations_input").value;
     var end = document.getElementById("end_stations_input").value;
@@ -175,7 +192,7 @@ function getResult() {
 
     document.getElementById("result_path").value = paths;
     document.getElementById("result_path").rows = path.length; 
-    document.getElementById("result_length").value = length.toString() + "(约" + Math.floor(length / 60 / 8) + "分钟)";
+    document.getElementById("result_length").value = length.toString() + "(约" + ConvertTime (length) + ")";
 }
 
 var graph = InitGraph(subData);
