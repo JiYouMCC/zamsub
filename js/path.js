@@ -177,8 +177,8 @@ function getResult() {
     var result = Dijkstra(graph, start);;
     var length = result[0][end];
     if (length == Number.MAX_VALUE) {
-        document.getElementById("result_path").value = "步行，飞行或游泳";
-        document.getElementById("result_length").value = "反正坐地铁到不了，你可以跳车试一试"
+        document.getElementById("result_path").innerText = "步行，飞行或游泳";
+        document.getElementById("result_length").innerText = "反正坐地铁到不了，你可以跳车试一试"
         return;
     }
     var path = ToArray(result[1], end);
@@ -190,9 +190,8 @@ function getResult() {
 
     }
 
-    document.getElementById("result_path").value = paths;
-    document.getElementById("result_path").rows = path.length; 
-    document.getElementById("result_length").value = length.toString() + "(约" + ConvertTime (length) + ")";
+    document.getElementById("result_path").innerText = paths;
+    document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
 }
 
 function cleanForm(data) {
