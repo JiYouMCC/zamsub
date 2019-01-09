@@ -222,6 +222,34 @@ function exchange() {
     end_station.value = s_s;
 }
 
+function cleanForm(data) {
+    var start_lines = document.getElementById("start_lines");
+    var end_lines = document.getElementById("end_lines");
+    start_lines.value = "all";
+    end_lines.value = "all";
+    updateStation('start', data);
+    updateStation('end', data);
+}
+
+function exchange() {
+    var start_lines = document.getElementById("start_lines");
+    var end_lines = document.getElementById("end_lines");
+    var start_station = document.getElementById("start_stations_input");
+    var end_station = document.getElementById("end_stations_input");
+
+    var s_l = start_lines.value;
+    var e_l = end_lines.value;
+
+    var s_s = start_station.value;
+    var e_s = end_station.value;
+
+    start_lines.value = e_l;
+    start_station.value = e_s;
+
+    end_lines.value = s_l;
+    end_station.value = s_s;
+}
+
 var graph = InitGraph(subData);
 
 InitDom(subData);
