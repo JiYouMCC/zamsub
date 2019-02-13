@@ -74,6 +74,5 @@ function Distance(station1, station2, index) {
     }
     var location1 = station1.location[index[0]];
     var location2 = station2.location[index[1]];
-    return Math.abs(location1.x - location2.x) + Math.abs(location1.y - location2.y)
-
+    return Math.abs(location1.x - location2.x) + Math.abs(location1.z - location2.z)
 }

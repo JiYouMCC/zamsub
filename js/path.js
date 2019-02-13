@@ -231,25 +231,18 @@ function cleanForm(data) {
     updateStation('end', data);
 }
 
-function exchange() {
-    var start_lines = document.getElementById("start_lines");
-    var end_lines = document.getElementById("end_lines");
-    var start_station = document.getElementById("start_stations_input");
-    var end_station = document.getElementById("end_stations_input");
-
-    var s_l = start_lines.value;
-    var e_l = end_lines.value;
-
-    var s_s = start_station.value;
-    var e_s = end_station.value;
-
-    start_lines.value = e_l;
-    start_station.value = e_s;
-
-    end_lines.value = s_l;
-    end_station.value = s_s;
-}
-
 var graph = InitGraph(subData);
 
 InitDom(subData);
+
+var stations = InitStation(subData);
+var lines = InitLine(subData, stations);
+for(i in subData.paths) {
+    var path = subData.paths[i];
+    var distance = path[2];
+    var d = Distance(FindStation(path[0], stations), FindStation(path[1], stations), path[3]);
+    if (distance != d){
+        console.log(path);
+        console.log(d);
+    }
+}
