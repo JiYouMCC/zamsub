@@ -31,11 +31,11 @@ function InitStation(data) {
         var location = data.stations[name].location;
         var locations = [];
         if (typeof(location[0]) == "number") {
-            locations.push(new Location(location[0], location[2], location[1]));
+            locations.push(new Location(location[0], location[1], location[2]));
         } else {
             for (var i = 0; i < location.length; i++) {
                 var l = location[i];
-                locations.push(new Location(l[0], l[2], l[1]));
+                locations.push(new Location(l[0], l[1], l[2]));
             }
         }
         stations.push(new Station(name, locations, ""));
@@ -75,4 +75,5 @@ function Distance(station1, station2, index) {
     var location1 = station1.location[index[0]];
     var location2 = station2.location[index[1]];
     return Math.abs(location1.x - location2.x) + Math.abs(location1.y - location2.y)
+
 }
