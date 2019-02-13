@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh_cn">
-    <head>
-        <meta charset= "utf-8">
-        <meta http-equiv="X-UA-Coompatible">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>赞服地铁通</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="container mx-auto">
-            <div class="row"><h1>赞服地铁通</h1></div>
-            <div class="panel">
-                <div class="row"><b>起点</b></div>
-                <div class="form-group">
-                    <div class="form-inline">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">线路</div>
-                            </div>
-                            <select class="form-control" id="start_lines" onchange="updateStation('start', subData);"></select>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">站点</div>
-                            </div>
-                            <input class="form-control" id="start_stations_input" list="start_stations" /><datalist id="start_stations"></datalist>
-                        </div>
-                    </div>
-                </div>
-                <div class="row"><b>终点</b></div>
-                <div class="form-group">
-                    <div class="form-inline">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">线路</div>
-                            </div>
-                            <select class="form-control" id="end_lines" onchange="updateStation('end', subData);"></select>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">站点</div>
-                            </div>
-                            <input class="form-control" id="end_stations_input" list="end_stations" /><datalist id="end_stations"></datalist>
-                        </div>
-                    </div>
-                </div>
+  <head>
+    <meta charset= "utf-8">
+    <meta http-equiv="X-UA-Coompatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>赞服地铁通</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-header"><h3>赞服地铁通</h3></div>
+        <div class="card-body">
+          <h5 class="card-title">起点</h5>
+          <div class="form-inline justify-content-center">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">线路</div>
+              </div>
+              <select class="form-control" id="start_lines" onchange="updateStation('start', subData);"></select>
             </div>
-            <div class="form-group">
-                <div class="col-12 text-center">
-                    <button type="button" class="btn btn-secondary" onclick="getResult();">一点就通</button>
-                </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">站点</div>
+              </div>
+              <input class="form-control" id="start_stations_input" list="start_stations" /><datalist id="start_stations"></datalist>
             </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><b>路径</b></div>
-                    </div>
-                    <textarea class="form-control" disabled type="text" id="result_path"></textarea></div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><b>距离</b></div>
-                    </div>
-                    <input class="form-control" type="text" id="result_length" disabled=""></div>
-                </div>
-            </div>
+          </div>
         </div>
-    </body>
-    <script src="js/data.js"></script>
-    <script src="js/path.js"></script>
-    <script src="js/class.js"></script>
+        <div class="card-body">
+          <h5 class="card-title">终点</h5>
+          <div class="form-inline justify-content-center">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">线路</div>
+              </div>
+              <select class="form-control" id="end_lines" onchange="updateStation('end', subData);"></select>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">站点</div>
+                </div>
+                <input class="form-control" id="end_stations_input" list="end_stations" /><datalist id="end_stations"></datalist>
+            </div>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-secondary" onclick="getResult();">一点就通</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="cleanForm(subData);">全部清空</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="exchange();getResult();">目标交换</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered" style="max-width: 450px;margin:auto;">
+            <tbody>
+              <tr>
+                <th scope="row" style="width:60px;">路径</th>
+                <td id="result_path"></td>
+              </tr>
+              <tr>
+                <th scope="row" style="width:60px;">距离</th>
+                <td id="result_length"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-body"><a href="https://github.com/JiYouMCC/zamsub/issues" target="_blank"><button type="button" class="btn btn-link">纠错</button></a></div>
+        <div class="card-body">Power by <a href="https://pages.github.com" target="_blank">Github Page</a></div>
+      </div>
+    </div>
+  </body>
+  <script src="js/data.js"></script>
+  <script src="js/path.js"></script>
+  <script src="js/class.js"></script>
 </html>
