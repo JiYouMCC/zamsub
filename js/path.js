@@ -87,7 +87,7 @@ function InitGraph(data) {
 }
 
 
-function InitDom(data) {
+function InitDom(stations, lines) {
     var start_lines = document.getElementById("start_lines");
     var end_lines = document.getElementById("end_lines");
     var para = document.createElement("option");
@@ -99,73 +99,50 @@ function InitDom(data) {
     para.value = 'all';
     para.text = "（所有线路）";
     end_lines.appendChild(para);
-    for (line in data['lines']) {
+    for (index in lines) {
+        var line = lines[index];
         para = document.createElement("option");
-        para.value = line;
-        para.text = line;
+        para.value = line.name;
+        para.text = line.name;
         start_lines.appendChild(para);
 
         para = document.createElement("option");
-        para.value = line;
-        para.text = line;
+        para.value = line.name;
+        para.text = line.name;
         end_lines.appendChild(para);
     }
-    updateStation('start', data);
-    updateStation('end', data);
+
+    updateStation('start', stations, lines);
+    updateStation('end', stations, lines);
 }
 
-function updateStation(type, data) {
+function updateStation(type, stations, lines) {
     var station_select = document.getElementById(type + "_stations");
     var station_select_input = document.getElementById(type + "_stations_input");
     var line_select = document.getElementById(type + "_lines");
-    var line = line_select.value;
+    var lineName = line_select.value;
     station_select_input.value = '';
     station_select.innerText = '';
 
-    if (line == "all") {
-        for (var i = 0; i < graph.nodes.length; i++) {
-            var station = graph.nodes[i];
+    if (lineName == "all") {
+        for (index in stations) {
+            var station = stations[index];
             var para = document.createElement("option");
-            para.value = station;
-            para.text = station;
+            para.value = station.name;
+            para.text = station.name;
             station_select.appendChild(para);
         }
         return;
     }
 
-    for (var i = 0; i < data['lines'][line].length; i++) {
-        var station = data['lines'][line][i];
+    var line = GetLine(lineName, lines);
+    for (index in line.stations) {
+        var station = stations[index];
         var para = document.createElement("option");
-        para.value = station;
-        para.text = station;
+        para.value = station.name;
+        para.text = station.name;
         station_select.appendChild(para);
     }
-}
-
-function findLine(station1, station2, data) {
-    for (line in data['lines']) {
-        var stations = data['lines'][line];
-        if (stations.includes(station1) && stations.includes(station2)) {
-            return line;
-        }
-    }
-}
-
-function ConvertTime(length) {
-	var minute = Math.floor(length / 60 / 8);
-    var length_sec = length - minute * 60 * 8;
-	var sec = Math.floor(length_sec / 8);
-    var result = "";
-    if (minute > 0) {
-        result += minute + "分";
-    }
-    if (sec > 0) {
-        result += sec + "秒";
-    }
-    if (result == "") {
-        result = "瞬间"
-    }
-    return result;
 }
 
 function getResult() {
@@ -186,7 +163,8 @@ function getResult() {
     for (var i = 0; i < path.length - 1; i++) {
         var s = path[i];
         var t = path[i + 1];
-        paths += ' --(' + findLine(s, t,subData) + ')--> \n' + path[i + 1]
+        var line = FindLine(FindStation(s, stations), FindStation(t, stations), lines);
+        paths += ' --(' + line.name + ')--> \n' + path[i + 1]
 
     }
 
@@ -194,14 +172,8 @@ function getResult() {
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
 }
 
-function cleanForm(data) {
-    var start_lines = document.getElementById("start_lines");
-    var end_lines = document.getElementById("end_lines");
-    start_lines.value = "all";
-    end_lines.value = "all";
-    updateStation('start', data);
-    updateStation('end', data);
-}
+
+// UI functions
 
 function exchange() {
     var start_lines = document.getElementById("start_lines");
@@ -231,12 +203,16 @@ function cleanForm(data) {
     updateStation('end', data);
 }
 
-var graph = InitGraph(subData);
 
-InitDom(subData);
+
+//
+
+
+var graph = InitGraph(subData);
 
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
+InitDom(stations, lines);
 for(i in subData.paths) {
     var path = subData.paths[i];
     var distance = path[2];
