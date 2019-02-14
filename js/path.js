@@ -80,6 +80,7 @@ function InitGraph(data) {
 
     for (var i = 0; i < data['paths'].length; i++) {
         var edge = data['paths'][i];
+
         graph.addEdge(edge[0], edge[1], edge[2])
     }
 
