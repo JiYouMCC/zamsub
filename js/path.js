@@ -137,13 +137,13 @@ function exchange() {
     end_station.value = s_s;
 }
 
-function cleanForm(data) {
+function cleanForm(stations, lines) {
     var start_lines = document.getElementById("start_lines");
     var end_lines = document.getElementById("end_lines");
     start_lines.value = "all";
     end_lines.value = "all";
-    updateStation('start', data);
-    updateStation('end', data);
+    updateStation('start', stations, lines);
+    updateStation('end', stations, lines);
 }
 
 function updateStation(type, stations, lines) {
@@ -167,7 +167,7 @@ function updateStation(type, stations, lines) {
 
     var line = GetLine(lineName, lines);
     for (index in line.stations) {
-        var station = stations[index];
+        var station = line.stations[index];
         var para = document.createElement("option");
         para.value = station.name;
         para.text = station.name;

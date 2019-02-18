@@ -18,7 +18,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">线路</div>
               </div>
-              <select class="form-control" id="start_lines" onchange="updateStation('start', subData);"></select>
+              <select class="form-control" id="start_lines" onchange="updateStation('start', subData, lines);"></select>
             </div>
             <div class="input-group">
               <div class="input-group-prepend">
@@ -35,7 +35,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">线路</div>
               </div>
-              <select class="form-control" id="end_lines" onchange="updateStation('end', subData);"></select>
+              <select class="form-control" id="end_lines" onchange="updateStation('end', subData, lines);"></select>
             </div>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -48,7 +48,7 @@
         <div class="card-body text-center">
           <div class="btn-group">
             <button type="button" class="btn btn-outline-secondary" onclick="getResult();">一点就通</button>
-            <button type="button" class="btn btn-outline-secondary" onclick="cleanForm(subData);">全部清空</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="cleanForm(stations, lines);">全部清空</button>
             <button type="button" class="btn btn-outline-secondary" onclick="exchange();getResult();">目标交换</button>
           </div>
         </div>
