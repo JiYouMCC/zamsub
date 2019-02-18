@@ -68,7 +68,6 @@ function FindStation(name, stations) {
     }
 }
 
-
 function FindLine(station1, station2, lines) {
     for (index in lines) {
         var line = lines[index];
@@ -86,7 +85,6 @@ function GetLine(name, lines) {
         }
     }
 }
-
 
 function Distance(station1, station2, index) {
     if (index == undefined) {

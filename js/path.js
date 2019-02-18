@@ -80,6 +80,7 @@ function InitGraph(data) {
 
     for (var i = 0; i < data['paths'].length; i++) {
         var edge = data['paths'][i];
+
         graph.addEdge(edge[0], edge[1], edge[2])
     }
 
@@ -172,7 +173,6 @@ function getResult() {
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
 }
 
-
 // UI functions
 
 function exchange() {
@@ -203,11 +203,7 @@ function cleanForm(data) {
     updateStation('end', data);
 }
 
-
-
 //
-
-
 var graph = InitGraph(subData);
 
 var stations = InitStation(subData);
