@@ -70,7 +70,7 @@ function ToArray(prev, fromNode) {
     return route;
 }
 
-function InitGraph(data) {
+function InitGraph(data, stations) {
     var graph = new Graph();
     for (line in data['lines']) {
         for (station in data['lines'][line]) {
@@ -80,8 +80,8 @@ function InitGraph(data) {
 
     for (var i = 0; i < data['paths'].length; i++) {
         var edge = data['paths'][i];
-
-        graph.addEdge(edge[0], edge[1], edge[2])
+        var distance = Distance(FindStation(edge[0], stations), FindStation(edge[1], stations), edge[3]);
+        graph.addEdge(edge[0], edge[1], distance);
     }
 
     return graph;
@@ -115,6 +115,35 @@ function InitDom(stations, lines) {
 
     updateStation('start', stations, lines);
     updateStation('end', stations, lines);
+}
+
+// UI functions
+function exchange() {
+    var start_lines = document.getElementById("start_lines");
+    var end_lines = document.getElementById("end_lines");
+    var start_station = document.getElementById("start_stations_input");
+    var end_station = document.getElementById("end_stations_input");
+
+    var s_l = start_lines.value;
+    var e_l = end_lines.value;
+
+    var s_s = start_station.value;
+    var e_s = end_station.value;
+
+    start_lines.value = e_l;
+    start_station.value = e_s;
+
+    end_lines.value = s_l;
+    end_station.value = s_s;
+}
+
+function cleanForm(data) {
+    var start_lines = document.getElementById("start_lines");
+    var end_lines = document.getElementById("end_lines");
+    start_lines.value = "all";
+    end_lines.value = "all";
+    updateStation('start', data);
+    updateStation('end', data);
 }
 
 function updateStation(type, stations, lines) {
@@ -173,48 +202,7 @@ function getResult() {
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
 }
 
-// UI functions
-
-function exchange() {
-    var start_lines = document.getElementById("start_lines");
-    var end_lines = document.getElementById("end_lines");
-    var start_station = document.getElementById("start_stations_input");
-    var end_station = document.getElementById("end_stations_input");
-
-    var s_l = start_lines.value;
-    var e_l = end_lines.value;
-
-    var s_s = start_station.value;
-    var e_s = end_station.value;
-
-    start_lines.value = e_l;
-    start_station.value = e_s;
-
-    end_lines.value = s_l;
-    end_station.value = s_s;
-}
-
-function cleanForm(data) {
-    var start_lines = document.getElementById("start_lines");
-    var end_lines = document.getElementById("end_lines");
-    start_lines.value = "all";
-    end_lines.value = "all";
-    updateStation('start', data);
-    updateStation('end', data);
-}
-
-//
-var graph = InitGraph(subData);
-
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
+var graph = InitGraph(subData, stations);
 InitDom(stations, lines);
-for(i in subData.paths) {
-    var path = subData.paths[i];
-    var distance = path[2];
-    var d = Distance(FindStation(path[0], stations), FindStation(path[1], stations), path[3]);
-    if (distance != d){
-        console.log(path);
-        console.log(d);
-    }
-}
