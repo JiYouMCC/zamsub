@@ -73,8 +73,8 @@ function ToArray(prev, fromNode) {
 function InitGraph(data, stations) {
     var graph = new Graph();
     for (line in data['lines']) {
-        for (station in data['lines'][line]) {
-            graph.addNode(data['lines'][line][station]);
+        for (station in data['lines'][line]['stations']) {
+            graph.addNode(data['lines'][line]['stations'][station]);
         }
     }
 
@@ -200,6 +200,8 @@ function getResult() {
 
     document.getElementById("result_path").innerText = paths;
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
+    document.getElementById("result_svg").innerText = "";
+    RanderSVG(path,lines,stations,"result_svg");
 }
 
 var stations = InitStation(subData);

@@ -13,10 +13,11 @@ function Station(name, location, description) {
 }
 
 // class 线路
-function Line(name, description) {
+function Line(name, color, description) {
     this.name = name;
     this.description = description;
     this.stations = [];
+    this.color = color;
     this.addStation = function(station) {
         if (!this.stations.includes(station)) {
             this.stations.push(station);
@@ -46,8 +47,9 @@ function InitStation(data) {
 function InitLine(data, stations) {
     var lines = [];
     for (name in data.lines) {
-        var stationsName = data.lines[name];
-        var line = new Line(name, "");
+        var stationsName = data.lines[name].stations;
+        var color = data.lines[name].color;
+        var line = new Line(name, color, "");
         for (var i = 0; i < stationsName.length; i++) {
             var stationName = stationsName[i];
             line.addStation(FindStation(stationName, stations));
@@ -95,7 +97,6 @@ function Distance(station1, station2, index) {
     return Math.abs(location1.x - location2.x) + Math.abs(location1.z - location2.z)
 }
 
-
 function ConvertTime(length) {
     var minute = Math.floor(length / 60 / 8);
     var length_sec = length - minute * 60 * 8;
@@ -111,4 +112,152 @@ function ConvertTime(length) {
         result = "瞬间"
     }
     return result;
+}
+
+function RanderSVG(path, lines, stations, parentID) {
+    // 画布
+    var width = 10 + 16 * 4 + 10 + 10 + 10 + 16 * 10 + 10;
+    var height = path.length * 26 + 10;
+    var svg = d3.select("#"+parentID)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    //分组
+    var ruler = svg.append("g");
+    var gPath = svg.append("g");
+    var gPoint = svg.append("g");
+    var gStation = svg.append("g");
+    var gLine = svg.append("g");
+
+    //辅助线
+    var rulerColor = "transparent";
+    //上下左右
+    ruler.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", 0)
+        .attr("y2", height)
+        .attr("stroke-width", 1)
+        .attr("stroke", rulerColor);
+    ruler.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", width)
+        .attr("y2", 0)
+        .attr("stroke-width", 1)
+        .attr("stroke", rulerColor);
+    ruler.append("line")
+        .attr("x1", width)
+        .attr("y1", 0)
+        .attr("x2", width)
+        .attr("y2", height)
+        .attr("stroke-width", 1)
+        .attr("stroke", rulerColor);
+    ruler.append("line")
+        .attr("x1", 0)
+        .attr("y1", height)
+        .attr("x2", width)
+        .attr("y2", height)
+        .attr("stroke-width", 1)
+        .attr("stroke", rulerColor);
+    //纵线
+    var vLines = [10, 64, 10, 10, 10, 160];
+    var tx = 0;
+    for (i in vLines) {
+        tx += vLines[i];
+        ruler.append("line")
+            .attr("x1", tx)
+            .attr("y1", 0)
+            .attr("x2", tx)
+            .attr("y2", height)
+            .attr("stroke-dasharray", "3,3")
+            .attr("stroke-width", 0.5)
+            .attr("stroke", rulerColor);
+    }
+    //横线
+    for (var i = 0; i < path.length ; i++) {
+        ruler.append("line")
+            .attr("x1", 0)
+            .attr("y1", 10 + 26 * i)
+            .attr("x2", width)
+            .attr("y2", 10 + 26 * i)
+            .attr("stroke-width", 0.5)
+            .attr("stroke-dasharray", "3,3")
+            .attr("stroke", rulerColor);
+        ruler.append("line")
+            .attr("x1", 0)
+            .attr("y1", 26 + 26 * i)
+            .attr("x2", width)
+            .attr("y2", 26 + 26 * i)
+            .attr("stroke-width", 0.5)
+            .attr("stroke-dasharray", "3,3")
+            .attr("stroke", rulerColor);
+    }
+
+    //路径
+    for (var i = 0; i < path.length - 1; i++ ) {
+        var start = path[i];
+        var end = path[i + 1];
+        var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
+        var lColor = line.color;
+        gPath.append("line")
+         .attr("x1", 10 + 16 * 4 + 10 + 5)
+         .attr("y1", 26 * i + 10 + 8)
+         .attr("x2", 10 + 16 * 4 + 10 + 5)
+         .attr("y2", 26 * (i + 1) + 10 + 8)
+         .attr("stroke-width", 5)
+         .attr("stroke", lColor);
+    }
+
+    //点
+    var circle = gPoint.selectAll("circle").data(path).enter().append("circle");
+    circle.attr("cx", 10 + 16 * 4 + 10 + 5)
+        .attr("cy", function(point) {return path.indexOf(point) * 26 + 18;})
+        .attr("r", 4)
+        .attr("stroke", "black")
+        .attr("fill", "white")
+        .attr("stroke-width", "2");
+
+    //站名
+    var station_text = gStation.selectAll("text")
+        .data(path)
+        .enter()
+        .append("text");
+    station_text
+     .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
+     .attr("y", function(d) {return 10 + path.indexOf(d) * 26 + 10})
+     .attr("alignment-baseline", "middle")
+     .text( function (d) { return d; });
+
+    //线路名
+    var oldLine = undefined;
+    for (var i = 0; i < path.length - 1; i++ ) {
+        var start = path[i];
+        var end = path[i + 1];
+        var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
+        if (oldLine == line.name) {
+            continue;
+        }
+        oldLine = line.name;
+        var lColor = line.color;
+        //框
+        gLine.append("rect")
+         .attr("x", 10)
+         .attr("y", 10 + 16 + 10 / 2 + 26 * i - 16 / 2)
+         .attr("width", 16 * 4)
+         .attr("height", 16)
+         .attr("fill", lColor)
+         .attr("rx", 5)
+         .attr("ry", 5);
+        //名字
+        gLine.append("text")
+            .attr("x", 10 + 16 * 4 / 2)
+            .attr("y", 10 + 16 + 10 / 2 + 26 * i + 1)
+            .attr("text-anchor", "middle")
+            .attr("alignment-baseline", "middle")
+            .text(line.name)
+            .attr("font-size", "12px")
+            .attr("fill", "white");
+    }
 }
