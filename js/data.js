@@ -237,7 +237,7 @@ var subData = {
             'location': [-92, 40, 3020]
         },
         'ij枢纽': {
-            'location': [-11, 20, 3878]
+            'location': [-11, 20, 3378]
         },
         'XS枢纽': {
             'location': [-10, 20, 4500]
