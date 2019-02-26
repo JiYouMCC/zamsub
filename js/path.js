@@ -189,19 +189,9 @@ function getResult() {
         return;
     }
     var path = ToArray(result[1], end);
-    var paths = path[0];
-    for (var i = 0; i < path.length - 1; i++) {
-        var s = path[i];
-        var t = path[i + 1];
-        var line = FindLine(FindStation(s, stations), FindStation(t, stations), lines);
-        paths += ' --(' + line.name + ')--> \n' + path[i + 1]
-
-    }
-
-    document.getElementById("result_path").innerText = paths;
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
     document.getElementById("result_svg").innerText = "";
-    RanderSVG(path,lines,stations,"result_svg");
+    RanderSVG(path, lines, stations, "result_svg");
 }
 
 var stations = InitStation(subData);
