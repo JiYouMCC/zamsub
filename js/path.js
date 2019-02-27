@@ -183,14 +183,15 @@ function getResult() {
     }
     var result = Dijkstra(graph, start);;
     var length = result[0][end];
+    var path = ToArray(result[1], end);
+    document.getElementById("result_svg").innerText = "";
     if (length == Number.MAX_VALUE) {
-        document.getElementById("result_path").innerText = "步行，飞行或游泳";
+        document.getElementById("result_svg").innerText = "步行，飞行或游泳";
         document.getElementById("result_length").innerText = "反正坐地铁到不了，你可以跳车试一试"
         return;
     }
-    var path = ToArray(result[1], end);
+    
     document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
-    document.getElementById("result_svg").innerText = "";
     RanderSVG(path, lines, stations, "result_svg");
 }
 
