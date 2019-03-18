@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+  <head>
+    <meta charset= "utf-8">
+    <meta http-equiv="X-UA-Coompatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>赞服地铁图</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-header"><h3>赞服地铁通</h3></div>
+        <div id="map" class="card-body"></div>
+        <div class="card-body"><a href="https://github.com/JiYouMCC/zamsub/issues" target="_blank"><button type="button" class="btn btn-link">纠错</button></a></div>
+        <div class="card-body">Power by <a href="https://pages.github.com" target="_blank">Github Page</a></div>
+      </div>
+    </div>
+  </body>
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="js/class.js"></script>
+  <script src="js/data.js"></script>
+  <!-- <script src="js/path.js"></script> -->
+  <script type="text/javascript">
+    var stations = InitStation(subData);
+    var lines = InitLine(subData, stations);
+    var x_min = 0;
+    var x_max = 0;
+    var z_min = 0;
+    var z_max = 0;
+    for (i in stations) {
+      var locations = stations[i].location;
+      var x = 0;
+      var y = 0;
+      var z = 0;
+      for (j in locations) {
+        x += locations[j].x;
+        y += locations[j].y;
+        z += locations[j].z;
+      }
+      x /= locations.length;
+      y /= locations.length;
+      z /= locations.length;
+      if (x < x_min) {
+        x_min = x;
+      }
+      if (z < z_min) {
+        z_min = z;
+      }
+      if (x > x_max) {
+        x_max = x;
+      }
+      if (z > z_max) {
+        z_max = z;
+      }
+    }
+    var width = 10 + (x_max - x_min) / 10 + 10;
+    var height = 10 + (z_max - z_min) / 10 + 10;
+
+    console.log(width)
+    console.log(height)
+    var svg = d3.select("#map")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    //分组
+    var gPath = svg.append("g");
+    var gPoint = svg.append("g");
+    var gStation = svg.append("g");
+    var gLine = svg.append("g");
+
+    //点
+    var circle = gPoint.selectAll("circle")
+      .data(stations)
+      .enter()
+      .append("circle");
+    circle.attr("cx", function(station) {
+      return 10 - x_min / 10 + station.location[0].x / 10
+    })
+      .attr("cy", function(station) {
+        return 10 - z_min / 10 + station.location[0].z / 10
+      })
+        .attr("r", 3)
+        .attr("stroke", "black")
+        .attr("fill", "white")
+        .attr("stroke-width", "2");
+
+    var paths = [];
+    for (i in subData.paths){
+       var path = subData.paths[i];
+        var start = FindStation(path[0], stations);
+        var end = FindStation(path[1], stations);
+        paths.push([start, end]);
+    }
+    var path_g = gPath.selectAll("polyline")
+      .data(paths)
+      .enter()
+      .append("polyline");
+
+    path_g.attr("points", function(p) {
+      var x1 = 10 - x_min / 10 + p[0].location[0].x / 10;
+      var y1 = 10 - z_min / 10 + p[0].location[0].z / 10;
+      var x2 = 10 - x_min / 10 + p[1].location[0].x / 10;
+      var y2 = 10 - z_min / 10 + p[1].location[0].z / 10;
+      return x1 + ","+ y1 +" "+ x2 +"," + y2;
+    })
+      .attr("stroke-width", 2)
+      .attr("stroke", function(p) {
+        var line = FindLine(p[0], p[1], lines);
+        return line.color;
+      });
+  </script>
+</html>
