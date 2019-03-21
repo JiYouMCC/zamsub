@@ -190,12 +190,32 @@ function getResult() {
         document.getElementById("result_length").innerText = "反正坐地铁到不了，你可以跳车试一试"
         return;
     }
-    
-    document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime (length) + ")";
+
+    document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime(length) + ")";
     RanderSVG(path, lines, stations, "result_svg");
+}
+
+function getLinkParam() {
+    var param = document.URL.split('?')[1]
+    var params = param.split('&')
+    var result = {};
+    for (p in params) {
+        var keyvalue = params[p].split('=');
+        result[keyvalue[0]] = decodeURI(keyvalue[1])
+    }
+    document.getElementById('start_stations_input').value = result.start;
+    document.getElementById('end_stations_input').value = result.end;
+    getResult()
+}
+
+function setLinkParam() {
+    var start = document.getElementById('start_stations_input').value;
+    var end = document.getElementById('end_stations_input').value;
+    window.history.pushState('', '', '?start=' + start + '&end=' + end);
 }
 
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
 var graph = InitGraph(subData, stations);
 InitDom(stations, lines);
+getLinkParam();
