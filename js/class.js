@@ -6,10 +6,11 @@ function Location(x, y, z) {
 }
 
 // class 地铁站
-function Station(name, location, description) {
+function Station(name, location, description, img) {
     this.name = name;
     this.location = location;
-    this.description = description;
+    this.description = description || '这个地铁站很懒，还没介绍自己。';
+    this.img = img || 'station_none.svg'
 }
 
 // class 线路
@@ -30,6 +31,8 @@ function InitStation(data) {
     var stations = [];
     for (name in data.stations) {
         var location = data.stations[name].location;
+        var description = data.stations[name].description;
+        var img = data.stations[name].img;
         var locations = [];
         if (typeof(location[0]) == "number") {
             locations.push(new Location(location[0], location[1], location[2]));
@@ -39,7 +42,7 @@ function InitStation(data) {
                 locations.push(new Location(l[0], l[1], l[2]));
             }
         }
-        stations.push(new Station(name, locations, ""));
+        stations.push(new Station(name, locations, description, img));
     }
     return stations;
 }
@@ -88,6 +91,17 @@ function GetLine(name, lines) {
     }
 }
 
+function GetLines(station, lines) {
+    var result = [];
+    for (index in lines) {
+        var line = lines[index];
+        if (line.stations.includes(station)) {
+            result.push(line);
+        }
+    }
+    return result;
+}
+
 function Distance(station1, station2, index) {
     if (index == undefined) {
         index = [0, 0];
@@ -118,7 +132,7 @@ function RanderSVG(path, lines, stations, parentID) {
     // 画布
     var width = 10 + 16 * 4 + 10 + 10 + 10 + 16 * 10 + 10;
     var height = path.length * 26 + 10;
-    var svg = d3.select("#"+parentID)
+    var svg = d3.select("#" + parentID)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -131,24 +145,26 @@ function RanderSVG(path, lines, stations, parentID) {
     var gLine = svg.append("g");
 
     //路径
-    for (var i = 0; i < path.length - 1; i++ ) {
+    for (var i = 0; i < path.length - 1; i++) {
         var start = path[i];
         var end = path[i + 1];
         var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
         var lColor = line.color;
         gPath.append("line")
-         .attr("x1", 10 + 16 * 4 + 10 + 5)
-         .attr("y1", 26 * i + 10 + 8)
-         .attr("x2", 10 + 16 * 4 + 10 + 5)
-         .attr("y2", 26 * (i + 1) + 10 + 8)
-         .attr("stroke-width", 5)
-         .attr("stroke", lColor);
+            .attr("x1", 10 + 16 * 4 + 10 + 5)
+            .attr("y1", 26 * i + 10 + 8)
+            .attr("x2", 10 + 16 * 4 + 10 + 5)
+            .attr("y2", 26 * (i + 1) + 10 + 8)
+            .attr("stroke-width", 5)
+            .attr("stroke", lColor);
     }
 
     //点
     var circle = gPoint.selectAll("circle").data(path).enter().append("circle");
     circle.attr("cx", 10 + 16 * 4 + 10 + 5)
-        .attr("cy", function(point) {return path.indexOf(point) * 26 + 18;})
+        .attr("cy", function(point) {
+            return path.indexOf(point) * 26 + 18;
+        })
         .attr("r", 4)
         .attr("stroke", "black")
         .attr("fill", "white")
@@ -160,14 +176,18 @@ function RanderSVG(path, lines, stations, parentID) {
         .enter()
         .append("text");
     station_text
-     .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
-     .attr("y", function(d) {return 10 + path.indexOf(d) * 26 + 10})
-     .attr("alignment-baseline", "middle")
-     .text( function (d) { return d; });
+        .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
+        .attr("y", function(d) {
+            return 10 + path.indexOf(d) * 26 + 10
+        })
+        .attr("alignment-baseline", "middle")
+        .text(function(d) {
+            return d;
+        });
 
     //线路名
     var oldLine = undefined;
-    for (var i = 0; i < path.length - 1; i++ ) {
+    for (var i = 0; i < path.length - 1; i++) {
         var start = path[i];
         var end = path[i + 1];
         var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
@@ -178,13 +198,13 @@ function RanderSVG(path, lines, stations, parentID) {
         var lColor = line.color;
         //框
         gLine.append("rect")
-         .attr("x", 10)
-         .attr("y", 10 + 16 + 10 / 2 + 26 * i - 16 / 2)
-         .attr("width", 16 * 4)
-         .attr("height", 16)
-         .attr("fill", lColor)
-         .attr("rx", 5)
-         .attr("ry", 5);
+            .attr("x", 10)
+            .attr("y", 10 + 16 + 10 / 2 + 26 * i - 16 / 2)
+            .attr("width", 16 * 4)
+            .attr("height", 16)
+            .attr("fill", lColor)
+            .attr("rx", 5)
+            .attr("ry", 5);
         //名字
         gLine.append("text")
             .attr("x", 10 + 16 * 4 / 2)

@@ -111,7 +111,9 @@ var subData = {
         },
         //'城北枢纽' : { 'location' : [-177,40,-887]}, 
         '彩虹半岛': {
-            'location': [-410, 40, -889]
+            'location': [-410, 40, -889],
+            'description': '彩虹镇东南沿海的半岛。',
+            'img': 'station_caihongbandao.jpg'
         },
         '彩虹镇洲际酒店': {
             'location': [-651, 40, -1018]
