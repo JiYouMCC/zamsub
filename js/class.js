@@ -26,6 +26,14 @@ function Line(name, color, description) {
     }
 }
 
+// class 边
+function Edge(start, end, stationArray) {
+    this.start = start;
+    this.end = end;
+    this.stationArray = stationArray || [0,0];
+    this.distance = Distance(start, end, stationArray);
+}
+
 // function 初始化
 function InitStation(data) {
     var stations = [];
@@ -62,6 +70,16 @@ function InitLine(data, stations) {
     return lines;
 }
 
+function InitEdge(data, stations) {
+    var edges = [];
+    for (var i = 0; i < data.paths.length; i++) {
+        var path = data.paths[i];
+        var edge = new Edge(FindStation(path[0], stations), FindStation(path[1], stations), path[2]);
+        edges.push(edge);
+    }
+
+    return edges;
+}
 
 // functions
 function FindStation(name, stations) {
@@ -215,4 +233,62 @@ function RanderSVG(path, lines, stations, parentID) {
             .attr("font-size", "12px")
             .attr("fill", "white");
     }
+}
+
+function Dijkstra(stations, edges, s) {
+    var Extract_Min = function(q, d) {
+        var minNode = undefined;
+        for (var i = 0; i < q.length; i++) {
+            var node = q[i];
+            if (minNode == undefined) {
+                minNode = node;
+            } else if (d[node] < d[minNode]) {
+                minNode = node;
+            }
+        }
+        return minNode;
+    }
+
+    var d = {};
+    var prev = {};
+
+    var Q = [];
+    for (var i = 0; i < stations.length; i++) {
+        var v = stations[i];
+        d[v.name] = Number.MAX_VALUE;
+        prev[v.name] = Number.MAX_VALUE;
+        Q.push(v.name);
+    }
+
+    d[s] = 0;
+    var S = [];
+    while(Q.length > 0) {
+        var u = Extract_Min(Q, d)
+        Q.splice(Q.indexOf(u), 1);
+        S.push(u);
+
+        for (var i = 0; i < edges.length; i++) {
+            var edge = edges[i];
+            if (edge.start.name == u) {
+                var v = edge.end.name;
+                if (d[v] > d[u] + edge.distance) {
+                    d[v] = d[u] + edge.distance;
+                    prev[v] = u;
+                }
+            }
+        }
+    }
+    return [d, prev];
+}
+
+function GetRoute(prev, end) {
+    var prevNode = prev[end];
+    var route = [end];
+    while (prevNode != Number.MAX_VALUE) {
+        route.push(prevNode)
+        var temp = prevNode;
+        prevNode = prev[temp]
+    }
+    route = route.reverse();
+    return route;
 }
