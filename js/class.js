@@ -195,7 +195,7 @@ function RanderSVG(path, lines, stations, parentID) {
         .append("a");
     station_text.attr("xlink:href", function(d) {
             return "station.html?station=" + d;
-        })
+        }).attr("xlink:target", "_blank")
         .append("text")
         .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
         .attr("y", function(d) {
