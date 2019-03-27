@@ -74,7 +74,10 @@ function updateInfo() {
       }
       var tr = document.createElement("tr");
       var td1 = document.createElement("td");
-      td1.innerText = nears[i][0];
+      var a = document.createElement("a");
+      a.innerText = nears[i][0];
+      a.href = "station.html?station=" + nears[i][0];
+      td1.appendChild(a);
       var td2 = document.createElement("td");
       td2.innerText = nears[i][1] + "米";
       tr.appendChild(td1);
@@ -91,7 +94,25 @@ function updateInfo() {
   }
 }
 
+function getLinkParam() {
+    var param = document.URL.split('?')[1]
+    var params = param.split('&')
+    var result = {};
+    for (p in params) {
+        var keyvalue = params[p].split('=');
+        result[keyvalue[0]] = decodeURI(keyvalue[1])
+    }
+    document.getElementById('stations_input').value = result.station;
+    updateInfo();
+}
+
+function setLinkParam() {
+    var station = document.getElementById('stations_input').value;
+    window.history.pushState('', '', '?station=' + station);
+}
+
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
 var edges = InitEdge(subData, stations);
 InitDom(stations, lines);
+getLinkParam();

@@ -23,7 +23,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">站点</div>
               </div>
-              <input class="form-control" id="stations_input" list="stations" onchange="updateInfo();" /><datalist id="stations" onchange="updateInfo();"></datalist>
+              <input class="form-control" id="stations_input" list="stations" onchange="updateInfo();setLinkParam();" /><datalist id="stations" onchange="updateInfo();"></datalist>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
                <tr>
                 <th>附近站点</th>
                 <td>
-                  <table class="table table-borderless table-sm">
+                  <table class="table table-borderless table-sm" style="margin-bottom: 0;">
                     <tbody id="s_near">
                     </tbody>
                   </table>

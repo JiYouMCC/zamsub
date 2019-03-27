@@ -30,7 +30,7 @@ function Line(name, color, description) {
 function Edge(start, end, stationArray) {
     this.start = start;
     this.end = end;
-    this.stationArray = stationArray || [0,0];
+    this.stationArray = stationArray || [0, 0];
     this.distance = Distance(start, end, stationArray);
 }
 
@@ -192,13 +192,17 @@ function RanderSVG(path, lines, stations, parentID) {
     var station_text = gStation.selectAll("text")
         .data(path)
         .enter()
-        .append("text");
-    station_text
+        .append("a");
+    station_text.attr("xlink:href", function(d) {
+            return "station.html?station=" + d;
+        })
+        .append("text")
         .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
         .attr("y", function(d) {
             return 10 + path.indexOf(d) * 26 + 10
         })
         .attr("alignment-baseline", "middle")
+        .attr("fill", '#007bff')
         .text(function(d) {
             return d;
         });
@@ -262,7 +266,7 @@ function Dijkstra(stations, edges, s) {
 
     d[s] = 0;
     var S = [];
-    while(Q.length > 0) {
+    while (Q.length > 0) {
         var u = Extract_Min(Q, d)
         Q.splice(Q.indexOf(u), 1);
         S.push(u);
