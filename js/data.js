@@ -116,7 +116,9 @@ var subData = {
             'img': 'station_caihongbandao.jpg'
         },
         '彩虹镇洲际酒店': {
-            'location': [-651, 40, -1018]
+            'location': [-651, 40, -1018],
+            'description': '又大又长的酒店，住在里面很舒适。',
+            'img': 'station_caihongzhenzhoujijiudian.jpg'
         },
         '彩虹镇': {
             'location': [-650, 40, -1177]
@@ -126,7 +128,7 @@ var subData = {
         },
         '妹控镇': {
             'location': [-385, 39, -2228],
-            'description': 'Shadow_Xi创建的有大鱼和大船的小镇。',
+            'description': 'Shadow_Xi创建的小镇，有大鱼大船。',
             'img': 'station_meikongzhen.jpg'
         },
         'xiqiao的家': {
