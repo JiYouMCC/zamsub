@@ -111,7 +111,9 @@ var subData = {
         },
         //'城北枢纽' : { 'location' : [-177,40,-887]}, 
         '彩虹半岛': {
-            'location': [-410, 40, -889]
+            'location': [-410, 40, -889],
+            'description': '彩虹镇东南沿海的半岛。',
+            'img': 'station_caihongbandao.jpg'
         },
         '彩虹镇洲际酒店': {
             'location': [-651, 40, -1018]
@@ -123,7 +125,9 @@ var subData = {
             'location': [-650, 40, -1985]
         },
         '妹控镇': {
-            'location': [-385, 39, -2228]
+            'location': [-385, 39, -2228],
+            'description': 'Shadow_Xi创建的有大鱼和大船的小镇。',
+            'img': 'station_meikongzhen.jpg'
         },
         'xiqiao的家': {
             'location': [-40, 40, -2229]
@@ -480,7 +484,9 @@ var subData = {
         //K13线
         //'阿云台' : { 'location' : [1,40,1349]}, 
         '荔宫': {
-            'location': [160, 40, 1350]
+            'location': [160, 40, 1350],
+            'description': 'b站搜索纯种荔枝酱，了解一下',
+            'img': 'station_ligong.jpg'
         },
         //'土豆镇': {'location': [[479, 40, 1160],[479, 40, 1350],]},
         //'无人沙村' : { 'location' : [859,40,1349]},

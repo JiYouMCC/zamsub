@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>赞服地铁通</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style type="text/css">
-      text:hover {
-          fill: #0056b3;
-          text-decoration: underline;
-      }
-    </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -22,11 +16,11 @@
         <h3>赞服地铁通</h3>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">线路<span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-              <a class="nav-link" href="station.html">车站</a>
+              <a class="nav-link" href="index.html">线路</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">车站<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -38,59 +32,45 @@
     <div class="container">
       <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">起点</h5>
           <div class="form-inline justify-content-center">
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">线路</div>
               </div>
-              <select class="form-control" id="start_lines" onchange="updateStation('start', stations, lines);"></select>
+              <select class="form-control" id="lines" onchange="updateStation(stations, lines);"></select>
             </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">站点</div>
               </div>
-              <input class="form-control" id="start_stations_input" list="start_stations" /><datalist id="start_stations"></datalist>
+              <input class="form-control" id="stations_input" list="stations" onchange="updateInfo();setLinkParam();" /><datalist id="stations" onchange="updateInfo();"></datalist>
             </div>
           </div>
         </div>
+        <h2 class="card-title" id="s_title"></h2>
+        <img id="s_img" src='img/station_none.svg' class="img-thumbnail mx-auto d-block" alt="...">
         <div class="card-body">
-          <h5 class="card-title">终点</h5>
-          <div class="form-inline justify-content-center">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">线路</div>
-              </div>
-              <select class="form-control" id="end_lines" onchange="updateStation('end', stations, lines);"></select>
-            </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">站点</div>
-                </div>
-                <input class="form-control" id="end_stations_input" list="end_stations" /><datalist id="end_stations"></datalist>
-            </div>
-          </div>
-        </div>
-        <div class="card-body text-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-outline-secondary" onclick="getResult();setLinkParam();">一点就通</button>
-            <button type="button" class="btn btn-outline-secondary" onclick="cleanForm(stations, lines);setLinkParam();">全部清空</button>
-            <button type="button" class="btn btn-outline-secondary" onclick="exchange();getResult();setLinkParam();">目标交换</button>
-          </div>
-        </div>
-        <div></div>
-        <div class="card-body">
-          <table class="table table-bordered" style="max-width: 450px;margin:auto;">
+          <table class="table table-bordered" style="max-width: 500px;margin:auto;">
             <tbody>
               <tr>
-                <th scope="row" colspan="2">路径</th>
+                <td id="s_description" scope="row" colspan="2"></td>
               </tr>
               <tr>
-                <td id="result_svg" colspan="2"></td>
+                <th style="width:100px;">站台坐标</th>
+                <td id="s_location"></td>
+              </tr>
+               <tr>
+                <th>附近站点</th>
+                <td>
+                  <table class="table table-borderless table-sm" style="margin-bottom: 0;">
+                    <tbody id="s_near">
+                    </tbody>
+                  </table>
+                </td>
               </tr>
               <tr>
-                <th scope="row" style="width:60px;">距离</th>
-                <td id="result_length"></td>
+                <th>连接线路</th>
+                <td id="s_lines"></td>
               </tr>
             </tbody>
           </table>
@@ -100,8 +80,7 @@
       </div>
     </div>
   </body>
-  <script src="https://d3js.org/d3.v5.js"></script>
   <script src="js/class.js"></script>
   <script src="js/data.js"></script>
-  <script src="js/path.js"></script>
+  <script src="js/station.js"></script>
 </html>

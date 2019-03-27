@@ -1,93 +1,3 @@
-function Graph() {
-    this.nodes = [];
-    this.edges = {};
-    this.addNode = function(node) {
-        if (!this.nodes.includes(node)) {
-            this.nodes.push(node);
-        }
-
-    };
-    this.addEdge = function(fromNode, toNode, length) {
-        if (!this.edges[fromNode]) {
-            this.edges[fromNode] = {};
-        }
-        this.edges[fromNode][toNode] = length;
-    };
-}
-
-function Dijkstra(graph, sourceName) {
-    var q = [];
-    var dist = {};
-    var prev = {};
-    var minDist = function(q, dist) {
-        var minNode = undefined;
-        for (var i = 0; i < q.length; i++) {
-            var node = q[i];
-            if (minNode == undefined) {
-                minNode = node;
-            } else if (dist[node] < dist[minNode]) {
-                minNode = node;
-            }
-        }
-        return minNode;
-    }
-
-    for (var i = 0; i < graph.nodes.length; i++) {
-        var v = graph.nodes[i];
-        dist[v] = Number.MAX_VALUE;
-        prev[v] = Number.MAX_VALUE;
-        q.push(v);
-    }
-
-    dist[sourceName] = 0;
-
-    while (q.length > 0) {
-        var u = minDist(q, dist);
-        q.splice(q.indexOf(u), 1);
-        if (graph.edges[u]) {
-            for (toNodeName in graph.edges[u]) {
-                var length = graph.edges[u][toNodeName];
-                var alt = dist[u] + length;
-                if (alt < dist[toNodeName]) {
-                    dist[toNodeName] = alt;
-                    prev[toNodeName] = u;
-                }
-            }
-        }
-    }
-    return [dist, prev];
-}
-
-function ToArray(prev, fromNode) {
-    var prevNode = prev[fromNode];
-    var route = [fromNode];
-    while (prevNode != Number.MAX_VALUE) {
-        route.push(prevNode)
-        var temp = prevNode;
-        prevNode = prev[temp]
-    }
-    route = route.reverse();
-    return route;
-}
-
-function InitGraph(data, stations) {
-    var graph = new Graph();
-    for (line in data['lines']) {
-        for (station in data['lines'][line]['stations']) {
-            graph.addNode(data['lines'][line]['stations'][station]);
-        }
-    }
-
-    for (var i = 0; i < data['paths'].length; i++) {
-        var edge = data['paths'][i];
-        var distance = Distance(FindStation(edge[0], stations), FindStation(edge[1], stations), edge[3]);
-        graph.addEdge(edge[0], edge[1], distance);
-    }
-
-    return graph;
-}
-
-
 function InitDom(stations, lines) {
     var start_lines = document.getElementById("start_lines");
     var end_lines = document.getElementById("end_lines");
@@ -117,7 +27,6 @@ function InitDom(stations, lines) {
     updateStation('end', stations, lines);
 }
 
-// UI functions
 function exchange() {
     var start_lines = document.getElementById("start_lines");
     var end_lines = document.getElementById("end_lines");
@@ -178,12 +87,12 @@ function updateStation(type, stations, lines) {
 function getResult() {
     var start = document.getElementById("start_stations_input").value;
     var end = document.getElementById("end_stations_input").value;
-    if (!start || !end || !graph.nodes.includes(start) || !graph.nodes.includes(end)) {
+    if (!start || !end || !stations.includes(FindStation(start, stations)) || !stations.includes(FindStation(end, stations))) {
         return;
     }
-    var result = Dijkstra(graph, start);;
+    var result = Dijkstra(stations, edges, start);;
     var length = result[0][end];
-    var path = ToArray(result[1], end);
+    var path = GetRoute(result[1], end);
     document.getElementById("result_svg").innerText = "";
     if (length == Number.MAX_VALUE) {
         document.getElementById("result_svg").innerText = "步行，飞行或游泳";
@@ -191,7 +100,7 @@ function getResult() {
         return;
     }
 
-    document.getElementById("result_length").innerText = length.toString() + "(约" + ConvertTime(length) + ")";
+    document.getElementById("result_length").innerText = length.toString() + "米(约" + ConvertTime(length) + ")";
     RanderSVG(path, lines, stations, "result_svg");
 }
 
@@ -216,6 +125,6 @@ function setLinkParam() {
 
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
-var graph = InitGraph(subData, stations);
+var edges = InitEdge(subData, stations);
 InitDom(stations, lines);
 getLinkParam();
