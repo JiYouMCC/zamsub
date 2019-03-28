@@ -76,7 +76,8 @@ function updateInfo() {
       var td1 = document.createElement("td");
       var a = document.createElement("a");
       a.innerText = nears[i][0];
-      a.href = "station.html?station=" + nears[i][0];
+      a.href = "javascript:void(0)";
+      a.setAttribute('onclick', 'innerUpdate("' + nears[i][0] + '")')
       td1.appendChild(a);
       var td2 = document.createElement("td");
       td2.innerText = nears[i][1] + "米";
@@ -109,6 +110,13 @@ function getLinkParam() {
 function setLinkParam() {
     var station = document.getElementById('stations_input').value;
     window.history.pushState('', '', '?station=' + station);
+}
+
+function innerUpdate(stationName) {
+  document.getElementById('stations_input').value = stationName;
+  updateInfo();
+  setLinkParam();
+  window.scrollTo(0, 0);
 }
 
 var stations = InitStation(subData);
