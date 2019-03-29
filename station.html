@@ -11,25 +11,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h3>赞服地铁通</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">线路</a>
+              <a class="nav-link" href="index.html">路线</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">车站<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
-    <div class="container">
+        
+      </nav>
       <div class="card text-center">
         <div class="card-body">
           <div class="form-inline justify-content-center">
@@ -59,9 +58,11 @@
                 <th style="width:100px;">站台坐标</th>
                 <td id="s_location"></td>
               </tr>
+              <tr>
+                <th scope="row" colspan="2">附近站点</th>
+              </tr>
                <tr>
-                <th>附近站点</th>
-                <td>
+                <td scope="row" colspan="2">
                   <table class="table table-borderless table-sm" style="margin-bottom: 0;">
                     <tbody id="s_near">
                     </tbody>

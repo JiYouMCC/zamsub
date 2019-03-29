@@ -116,7 +116,9 @@ var subData = {
             'img': 'station_caihongbandao.jpg'
         },
         '彩虹镇洲际酒店': {
-            'location': [-651, 40, -1018]
+            'location': [-651, 40, -1018],
+            'description': '又大又长的酒店，住在里面很舒适。',
+            'img': 'station_caihongzhenzhoujijiudian.jpg'
         },
         '彩虹镇': {
             'location': [-650, 40, -1177]
@@ -126,7 +128,7 @@ var subData = {
         },
         '妹控镇': {
             'location': [-385, 39, -2228],
-            'description': 'Shadow_Xi创建的有大鱼和大船的小镇。',
+            'description': 'Shadow_Xi创建的小镇，有大鱼大船。',
             'img': 'station_meikongzhen.jpg'
         },
         'xiqiao的家': {
@@ -465,7 +467,9 @@ var subData = {
         //'稻之乡南' : { 'location' : [-2301,40,405]}, 
         //'运通枢纽': {'location': [-2700, 40, 499]},
         '浮离': {
-            'location': [-3100, 40, 499]
+            'location': [-3100, 40, 499],
+            'description': '一个力图实用与美观相结合的小镇。',
+            'img': 'station_fuli.jpg'
         },
         '蜀汉国界': {
             'location': [-3901, 40, 1350]
@@ -564,7 +568,9 @@ var subData = {
 
         //X专线
         '狼窝': {
-            'location': [525, 40, 19]
+            'location': [525, 40, 19],
+            'description': '距主城最近又最丑还没被强拆的家。',
+            'img': 'station_langwo.jpg'
         },
         '象头岛': {
             'location': [860, 20, 20]
