@@ -467,7 +467,9 @@ var subData = {
         //'稻之乡南' : { 'location' : [-2301,40,405]}, 
         //'运通枢纽': {'location': [-2700, 40, 499]},
         '浮离': {
-            'location': [-3100, 40, 499]
+            'location': [-3100, 40, 499],
+            'description': '一个力图实用与美观相结合的小镇。',
+            'img': 'station_fuli.jpg'
         },
         '蜀汉国界': {
             'location': [-3901, 40, 1350]
@@ -566,7 +568,9 @@ var subData = {
 
         //X专线
         '狼窝': {
-            'location': [525, 40, 19]
+            'location': [525, 40, 19],
+            'description': '距主城最近又最丑还没被强拆的家。',
+            'img': 'station_langwo.jpg'
         },
         '象头岛': {
             'location': [860, 20, 20]
