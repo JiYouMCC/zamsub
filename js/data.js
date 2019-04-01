@@ -5,7 +5,9 @@ var subData = {
 
         //赞一线
         '城北枢纽': {
-            'location': [-177, 40, -887]
+            'location': [-177, 40, -887],
+            'description': '连接赞一线和K2线的枢纽站。',
+            'img': 'station_chengbeishuniu.jpg'
         },
         '赞服国际机场': {
             'location': [
@@ -104,10 +106,14 @@ var subData = {
             'location': [1549, 40, -900]
         },
         'xiximi的家': {
-            'location': [691, 40, -890]
+            'location': [691, 40, -890],
+            'description': 'xiximi建在云上高山的家。',
+            'img': 'station_xiximidejia.jpg'
         },
         'KK的沙漠别墅': {
-            'location': [206, 40, -751]
+            'location': [206, 40, -751],
+            'description': 'KK的第一个赞服建筑，地皮机场征用，被迫搬迁，现已荒废。',
+            'img': 'station_kkdeshamobieshu.jpg'
         },
         //'城北枢纽' : { 'location' : [-177,40,-887]}, 
         '彩虹半岛': {
@@ -576,7 +582,9 @@ var subData = {
             'img': 'station_langwo.jpg'
         },
         '象头岛': {
-            'location': [860, 20, 20]
+            'location': [860, 20, 20],
+            'description': '大象头部形状的一个岛屿。',
+            'img': 'station_xiangtoudao.jpg'
         },
 
         //吕梨线
