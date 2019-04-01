@@ -5,7 +5,9 @@ var subData = {
 
         //赞一线
         '城北枢纽': {
-            'location': [-177, 40, -887]
+            'location': [-177, 40, -887],
+            'description': '连接赞一线和K2线的枢纽站。',
+            'img': 'station_chengbeishuniu.jpg'
         },
         '赞服国际机场': {
             'location': [
@@ -104,10 +106,14 @@ var subData = {
             'location': [1549, 40, -900]
         },
         'xiximi的家': {
-            'location': [691, 40, -890]
+            'location': [691, 40, -890],
+            'description': 'xiximi建在云上高山的家。',
+            'img': 'station_xiximidejia.jpg'
         },
         'KK的沙漠别墅': {
-            'location': [206, 40, -751]
+            'location': [206, 40, -751],
+            'description': 'KK的第一个赞服建筑，地皮机场征用，被迫搬迁，现已荒废。',
+            'img': 'station_kkdeshamobieshu.jpg'
         },
         //'城北枢纽' : { 'location' : [-177,40,-887]}, 
         '彩虹半岛': {
@@ -452,6 +458,9 @@ var subData = {
         },
         //'猫村枢纽': {'location': [-11, 40, 5301]},
         //'四方枢纽': {'location': [-900, 40, 5300]},
+        '照桥': {
+            'location': [-1960,119,5260]
+        },
 
         //K10线
         //'老郭故居' : { 'location' : [-1130,40,-220]}, 
@@ -573,7 +582,9 @@ var subData = {
             'img': 'station_langwo.jpg'
         },
         '象头岛': {
-            'location': [860, 20, 20]
+            'location': [860, 20, 20],
+            'description': '大象头部形状的一个岛屿。',
+            'img': 'station_xiangtoudao.jpg'
         },
 
         //吕梨线
@@ -732,7 +743,7 @@ var subData = {
         },
         '伊苏线': {
             "color": "#0066CC",
-            "stations": ['沙河枢纽', '泽民', '骨乐园', '寺院化石博物馆', '上海老江','地下城', '地下城北', '猫耳的家', '猫村枢纽', '四方枢纽']
+            "stations": ['沙河枢纽', '泽民', '骨乐园', '寺院化石博物馆', '上海老江','地下城', '地下城北', '猫耳的家', '猫村枢纽', '四方枢纽', '照桥']
         },
         'X专线': {
             "color": "#336699",
@@ -758,7 +769,6 @@ var subData = {
             "color": "#66CCFF",
             "stations": ['提尼岛工业园', '地下城北', '上海老江']
         },
-
     },
     'paths': [
         //只记录坐标
@@ -1278,6 +1288,9 @@ var subData = {
 
         ['猫村枢纽', '四方枢纽'],
         ['四方枢纽', '猫村枢纽'],
+
+        ['四方枢纽', '照桥'],
+        ['照桥', '四方枢纽'],
 
         // X专线
         ['狼窝', '象头岛'],
