@@ -49,6 +49,7 @@ function updateInfo() {
   var stationName = document.getElementById("stations_input").value;
   var station = FindStation(stationName, stations);
   if (station) {
+    document.getElementById("s_img").src = "";
     document.getElementById("s_title").innerText = station.name;
     document.getElementById("s_img").src = "img/" + station.img;
     document.getElementById("s_description").innerText = station.description;
