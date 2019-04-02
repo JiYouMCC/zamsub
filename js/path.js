@@ -105,16 +105,20 @@ function getResult() {
 }
 
 function getLinkParam() {
-    var param = document.URL.split('?')[1]
-    var params = param.split('&')
+    var linkStr = document.URL.split('?');
+    if (linkStr.length < 2) {
+        return;
+    }
+    var param = linkStr[1];
+    var params = param.split('&');
     var result = {};
     for (p in params) {
         var keyvalue = params[p].split('=');
-        result[keyvalue[0]] = decodeURI(keyvalue[1])
+        result[keyvalue[0]] = decodeURI(keyvalue[1]);
     }
     document.getElementById('start_stations_input').value = result.start;
     document.getElementById('end_stations_input').value = result.end;
-    getResult()
+    getResult();
 }
 
 function setLinkParam() {
