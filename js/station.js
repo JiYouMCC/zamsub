@@ -97,7 +97,11 @@ function updateInfo() {
 }
 
 function getLinkParam() {
-    var param = document.URL.split('?')[1]
+  var linkStr = document.URL.split('?');
+    if (linkStr.length < 2) {
+        return;
+    }
+    var param = linkStr[1];
     var params = param.split('&')
     var result = {};
     for (p in params) {
