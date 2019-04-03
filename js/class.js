@@ -321,9 +321,9 @@ function CalLineDistance(line, stations, edges) {
 function RenderLineMap(line, edges, parentID) {
   var stations = line.stations;
   var x_min = Number.MAX_VALUE;
-  var x_max = Number.MIN_VALUE;
+  var x_max = -Number.MAX_VALUE;
   var z_min = Number.MAX_VALUE;
-  var z_max = Number.MIN_VALUE;
+  var z_max = -Number.MAX_VALUE;
   for (i in stations) {
     var station = stations[i];
     var locations = station.location;
@@ -385,7 +385,10 @@ function RenderLineMap(line, edges, parentID) {
   for (i in edges) {
     var edge = edges[i];
     if (line.stations.includes(edge.start) && line.stations.includes(edge.end)) {
-      paths.push([edge.start, edge.end]);
+      var checkLine = FindLine(edge.start, edge.end, lines);
+      if (checkLine == line) {
+        paths.push([edge.start, edge.end]);
+      }
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
