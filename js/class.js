@@ -27,9 +27,10 @@ function Line(name, color, description) {
 }
 
 // class 边
-function Edge(start, end, stationArray) {
+function Edge(start, end, stationArray, line) {
   this.start = start;
   this.end = end;
+  this.line = line;
   this.stationArray = stationArray || [0, 0];
   this.distance = Distance(start, end, stationArray);
 }
@@ -71,11 +72,16 @@ function InitLine(data, stations) {
   return lines;
 }
 
-function InitEdge(data, stations) {
+function InitEdge(data, stations, lines) {
   var edges = [];
   for (var i = 0; i < data.paths.length; i++) {
     var path = data.paths[i];
-    var edge = new Edge(FindStation(path[0], stations), FindStation(path[1], stations), path[2]);
+    var edge = new Edge(
+      FindStation(path.start, stations), 
+      FindStation(path.end, stations), 
+      path.stationArray,
+      GetLine(path.line, lines)
+      );
     edges.push(edge);
   }
 

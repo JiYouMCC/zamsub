@@ -109,6 +109,6 @@ function innerUpdate(lineName) {
 
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
-var edges = InitEdge(subData, stations);
+var edges = InitEdge(subData, stations, lines);
 InitDom(lines);
 getLinkParam();
