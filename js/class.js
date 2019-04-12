@@ -396,12 +396,12 @@ function RenderLineMap(line, edges, parentID) {
     .attr("cy", function(station) {
       return 25 - z_min / 10 + station.location[0].z / 10
     })
-    .attr("r", 3)
+    .attr("r", 4)
     .attr("stroke", "black")
     .attr("fill", "white")
     .attr("stroke-width", "2")
     .append("svg:title")
-    .text(function(station) { return station.name; });;
+    .text(function(station) { return station.name; });
 
   var paths = [];
   for (i in edges) {
@@ -421,7 +421,7 @@ function RenderLineMap(line, edges, parentID) {
         var y2 = 25 - z_min / 10 + p[1].location[0].z / 10;
         return x1 + "," + y1 + " " + x2 + "," + y2;
       })
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 5)
       .attr("stroke", function(p) {
         return line.color;
       });
