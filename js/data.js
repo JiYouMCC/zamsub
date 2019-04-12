@@ -775,1783 +775,1845 @@ var subData = {
         {
             "start": "城北枢纽",
             "end": "赞服国际机场",
-            "stationArray": [0, 0],
+            "stationArray": [0, 1],
             "line": "赞一线"
         }, 
         {
             "start": "赞服国际机场",
             "end": "城北枢纽",
-            "stationArray": [0, 0],
             "line": "赞一线"
         }, 
         {
             "start": "赞服国际机场",
             "end": "出生点",
-            "stationArray": [0, 0],
+            "stationArray": [1, 1],
             "line": "赞一线"
         }, 
         {
             "start": "出生点",
             "end": "赞服国际机场",
-            "stationArray": [0, 0],
             "line": "赞一线"
         }, 
         {
             "start": "出生点",
             "end": "漆黑之翼",
-            "stationArray": [0, 0],
+            "stationArray": [1, 0],
             "line": "赞一线"
         }, 
         {
             "start": "漆黑之翼",
             "end": "出生点",
-            "stationArray": [0, 0],
             "line": "赞一线"
         }, 
         // 赞二线
         {
             "start": "未名阁",
             "end": "出生点",
-            "stationArray": [0, 0],
+            "stationArray": [0, 3],
             "line": "赞二线"
         }, 
         {
             "start": "出生点",
             "end": "未名阁",
-            "stationArray": [0, 0],
+            "stationArray": [2, 0],
             "line": "赞二线"
         }, 
         {
             "start": "出生点",
             "end": "中央枢纽",
-            "stationArray": [0, 0],
+            "stationArray": [3, 0],
             "line": "赞二线"
         }, 
         {
             "start": "中央枢纽",
             "end": "出生点",
-            "stationArray": [0, 0],
+            "stationArray": [0, 2],
             "line": "赞二线"
         }, 
         // K1线
         {
             "start": "妹控镇南",
             "end": "applezhou家旧址",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "applezhou家旧址",
             "end": "妹控镇南",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "applezhou家旧址",
             "end": "星海湾",
-            "stationArray": [0, 0],
+            "stationArray": [0, 1],
             "line": "K1线"
         }, 
         {
             "start": "星海湾",
             "end": "applezhou家旧址",
-            "stationArray": [0, 0],
+            //这里距离按照南站台出发算
             "line": "K1线"
         }, 
         {
             "start": "星海湾",
             "end": "雨的故事的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "雨的故事的家",
             "end": "星海湾",
-            "stationArray": [0, 0],
+            "stationArray": [0, 1],
+            //这里距离按照南站台出发算
             "line": "K1线"
         }, 
         {
             "start": "雨的故事的家",
             "end": "xiximi的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "xiximi的家",
             "end": "雨的故事的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "xiximi的家",
             "end": "象头岛",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "象头岛",
             "end": "xiximi的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "象头岛",
             "end": "中央枢纽",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "中央枢纽",
             "end": "象头岛",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "中央枢纽",
             "end": "LSF的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "LSF的家",
             "end": "中央枢纽",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "LSF的家",
             "end": "无人沙村",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "无人沙村",
             "end": "LSF的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "无人沙村",
             "end": "魔瓶的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "魔瓶的家",
             "end": "无人沙村",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "魔瓶的家",
             "end": "森林枢纽",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "森林枢纽",
             "end": "魔瓶的家",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "森林枢纽",
             "end": "夏尔镇",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
         {
             "start": "夏尔镇",
             "end": "森林枢纽",
-            "stationArray": [0, 0],
             "line": "K1线"
         }, 
 
+        // K2线
         {
             "start": "flam的家",
             "end": "xiximi的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "xiximi的家",
             "end": "flam的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "xiximi的家",
             "end": "KK的沙漠别墅",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "KK的沙漠别墅",
             "end": "xiximi的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "KK的沙漠别墅",
             "end": "城北枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "城北枢纽",
             "end": "KK的沙漠别墅",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "城北枢纽",
             "end": "彩虹半岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "彩虹半岛",
             "end": "城北枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "彩虹半岛",
             "end": "彩虹镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "彩虹镇",
             "end": "彩虹半岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        // ---- 彩虹镇洲际酒店支线
+        {
             "start": "彩虹镇",
             "end": "彩虹镇洲际酒店",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "彩虹镇洲际酒店",
             "end": "彩虹镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "彩虹镇洲际酒店",
             "end": "彩虹半岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        // ---- 彩虹镇洲际酒店支线
+        {
             "start": "彩虹镇",
             "end": "三界枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "三界枢纽",
             "end": "彩虹镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "三界枢纽",
             "end": "妹控镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "妹控镇",
             "end": "三界枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "妹控镇",
             "end": "xiqiao的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "xiqiao的家",
             "end": "妹控镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "xiqiao的家",
             "end": "寒月家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "寒月家旧址",
             "end": "xiqiao的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "寒月家旧址",
             "end": "ricky的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+        {
             "start": "ricky的家",
             "end": "寒月家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K2线"
+        },
+
+        // K3线
+        {
             "start": "羊村",
             "end": "LSF的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "LSF的家",
             "end": "羊村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "LSF的家",
             "end": "土豆镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "土豆镇",
             "end": "LSF的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "stationArray": [1, 0],//按照远的算
+            "line": "K3线"
+        },
+        {
             "start": "土豆镇",
             "end": "Wintering_的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "stationArray": [1, 0],//按照远的算
+            "line": "K3线"
+        },
+        {
             "start": "Wintering_的家",
             "end": "土豆镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "Wintering_的家",
             "end": "FishWit的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "FishWit的家",
             "end": "Wintering_的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "FishWit的家",
             "end": "尸冢",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "尸冢",
             "end": "FishWit的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "尸冢",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "樱花乡",
             "end": "尸冢",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        // ---- 白虎岭支线
+        {
             "start": "白虎岭",
             "end": "尸冢",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "白虎岭",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "樱花乡",
             "end": "白虎岭",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        // ---- 白虎岭支线
+        {
             "start": "樱花乡",
             "end": "樱花乡西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+        {
             "start": "樱花乡西",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K3线"
+        },
+
+        // K4线北段
+        {
             "start": "未名阁",
             "end": "高地枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+        {
             "start": "高地枢纽",
             "end": "未名阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+        {
             "start": "高地枢纽",
             "end": "艾拉的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+        {
             "start": "艾拉的家",
             "end": "高地枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+        {
             "start": "艾拉的家",
             "end": "稻之乡南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+        {
             "start": "稻之乡南",
             "end": "艾拉的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线北段"
+        },
+
+        // K4线南段
+        {
             "start": "漆黑之翼",
             "end": "FishWit的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "FishWit的家",
             "end": "漆黑之翼",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "FishWit的家",
             "end": "阿云台",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "阿云台",
             "end": "FishWit的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "阿云台",
             "end": "终南山",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "终南山",
             "end": "阿云台",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "终南山",
             "end": "KINDEL的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "KINDEL的家",
             "end": "终南山",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "KINDEL的家",
             "end": "雪亭",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "雪亭",
             "end": "KINDEL的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "雪亭",
             "end": "ij枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "ij枢纽",
             "end": "雪亭",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "ij枢纽",
             "end": "XS枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "XS枢纽",
             "end": "ij枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "XS枢纽",
             "end": "猫村枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+        {
             "start": "猫村枢纽",
             "end": "XS枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K4线南段"
+        },
+
+        // K5线
+        {
             "start": "未名阁",
             "end": "七魂家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "七魂家旧址",
             "end": "未名阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "七魂家旧址",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "樱花乡",
             "end": "七魂家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        // ---- 盘丝洞支线
+        {
             "start": "盘丝洞",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        // ---- 盘丝洞支线
+        {
             "start": "樱花乡",
             "end": "盘丝洞",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "盘丝洞",
             "end": "七魂家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "樱花乡",
             "end": "风之镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "风之镇",
             "end": "樱花乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        // ----lsy的家支线
+        {
             "start": "风之镇",
             "end": "lsy的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "lsy的家",
             "end": "风之镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        // ----lsy的家支线
+        {
             "start": "风之镇",
             "end": "风之镇西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "风之镇西",
             "end": "风之镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "风之镇西",
             "end": "沙漠枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "沙漠枢纽",
             "end": "风之镇西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "沙漠枢纽",
             "end": "tz的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "tz的家",
             "end": "沙漠枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "tz的家",
             "end": "咸鱼",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "咸鱼",
             "end": "tz的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "双子阁",
             "end": "咸鱼",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+        {
             "start": "咸鱼",
             "end": "双子阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K5线"
+        },
+
+        // K6线
+        {
             "start": "樱花乡西",
             "end": "ranfei的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "ranfei的家",
             "end": "樱花乡西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "ranfei的家",
             "end": "高地枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "高地枢纽",
             "end": "ranfei的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "高地枢纽",
             "end": "老郭故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "老郭故居",
             "end": "高地枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "老郭故居",
             "end": "大裤衩",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "大裤衩",
             "end": "老郭故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "大裤衩",
             "end": "肥宅乐园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "肥宅乐园",
             "end": "大裤衩",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "肥宅乐园",
             "end": "ZERO的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "ZERO的家",
             "end": "肥宅乐园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "ZERO的家",
             "end": "Meowth的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "Meowth的家",
             "end": "ZERO的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "Meowth的家",
             "end": "三界枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "三界枢纽",
             "end": "Meowth的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "三界枢纽",
             "end": "妹控镇南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "妹控镇南",
             "end": "三界枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "妹控镇南",
             "end": "妹控客栈",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "妹控客栈",
             "end": "妹控镇南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "妹控镇南",
             "end": "妹控镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "妹控镇",
             "end": "妹控镇南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        // ---- 螃蟹岛灯塔支线
+        {
             "start": "妹控镇",
             "end": "螃蟹岛灯塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "螃蟹岛灯塔",
             "end": "妹控镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "螃蟹岛灯塔",
             "end": "春暖花开",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "春暖花开",
             "end": "螃蟹岛灯塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        // ---- 螃蟹岛灯塔支线
+        {
             "start": "妹控镇",
             "end": "春暖花开",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "春暖花开",
             "end": "妹控镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "春暖花开",
             "end": "卫岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+        {
             "start": "卫岛",
             "end": "春暖花开",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K6线"
+        },
+
+        // K7线
+        {
             "start": "漆黑之翼",
             "end": "天守阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+        {
             "start": "天守阁",
             "end": "漆黑之翼",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+        {
             "start": "天守阁",
             "end": "七魂家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+        {
             "start": "七魂家旧址",
             "end": "天守阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+        {
             "start": "七魂家旧址",
             "end": "樱花乡西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+        {
             "start": "樱花乡西",
             "end": "七魂家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K7线"
+        },
+
+        // K8线
+        {
             "start": "ZERO的家",
             "end": "彩虹镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "彩虹镇",
             "end": "ZERO的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "彩虹镇",
             "end": "_qUUp_的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "_qUUp_的家",
             "end": "彩虹镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "_qUUp_的家",
             "end": "星海湾",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "星海湾",
             "end": "_qUUp_的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "星海湾",
             "end": "方台",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "方台",
             "end": "星海湾",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "方台",
             "end": "x_xGe海灯塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+        {
             "start": "x_xGe海灯塔",
             "end": "方台",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K8线"
+        },
+
+        // K9线
+        {
             "start": "森林枢纽",
             "end": "富饶港",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "富饶港",
             "end": "森林枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "富饶港",
             "end": "沙河枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "沙河枢纽",
             "end": "富饶港",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "沙河枢纽",
             "end": "咸鱼东",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "咸鱼东",
             "end": "沙河枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "咸鱼东",
             "end": "双子阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+        {
             "start": "双子阁",
             "end": "咸鱼东",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K9线"
+        },
+
+        // K10线
+        {
             "start": "老郭故居",
             "end": "秋山的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "秋山的家",
             "end": "老郭故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "秋山的家",
             "end": "光明镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "光明镇",
             "end": "秋山的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "光明镇",
             "end": "稻之乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "稻之乡",
             "end": "光明镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "稻之乡",
             "end": "稻之乡南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "稻之乡南",
             "end": "稻之乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "稻之乡南",
             "end": "运通枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "运通枢纽",
             "end": "稻之乡南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "运通枢纽",
             "end": "浮离",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "浮离",
             "end": "运通枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "浮离",
             "end": "蜀汉国界",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+        {
             "start": "蜀汉国界",
             "end": "浮离",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K10线"
+        },
+
+        // K11线
+        {
             "start": "七魂的家",
             "end": "作案哥的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K11线"
+        },
+        {
             "start": "作案哥的家",
             "end": "七魂的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K11线"
+        },
+
+        // K12线
+        {
             "start": "作案哥的家",
             "end": "Meowth的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K12线"
+        },
+        {
             "start": "Meowth的家",
             "end": "作案哥的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K12线"
+        },
+
+        // K13线
+        {
             "start": "阿云台",
             "end": "荔宫",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K13线"
+        },
+        {
             "start": "荔宫",
             "end": "阿云台",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K13线"
+        },
+        {
             "start": "荔宫",
             "end": "土豆镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "stationArray": [0, 1],
+            "line": "K13线"
+        },
+        {
             "start": "土豆镇",
-            "end": "荔宫",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "end": "荔宫",//按照远的算
+            "line": "K13线"
+        },
+        {
             "start": "土豆镇",
-            "end": "无人沙村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "end": "无人沙村",//按照远的算
+            "line": "K13线"
+        },
+        {
             "start": "无人沙村",
             "end": "土豆镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "stationArray": [0, 1],
+            "line": "K13线"
+        },
+
+        // K14线
+        {
             "start": "艾拉的家",
             "end": "gaffey的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+        {
             "start": "gaffey的家",
             "end": "艾拉的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+        {
             "start": "gaffey的家",
             "end": "海中粟",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+        {
             "start": "海中粟",
             "end": "gaffey的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+        {
             "start": "海中粟",
             "end": "稻之乡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+        {
             "start": "稻之乡",
             "end": "海中粟",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K14线"
+        },
+
+        // K15线
+        {
             "start": "咸鱼东",
             "end": "96Ko的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "96Ko的家",
             "end": "咸鱼东",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "96Ko的家",
             "end": "提尼岛北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "提尼岛北",
             "end": "96Ko的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "提尼岛北",
             "end": "提尼岛工业园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "提尼岛工业园",
             "end": "提尼岛北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "提尼岛工业园",
             "end": "XS枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "XS枢纽",
             "end": "提尼岛工业园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "XS枢纽",
             "end": "共产主义大陆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "共产主义大陆",
             "end": "XS枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "共产主义大陆",
             "end": "瑜陵",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "瑜陵",
             "end": "共产主义大陆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "瑜陵",
             "end": "糖湖镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "糖湖镇",
             "end": "瑜陵",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "共产主义大陆",
             "end": "瑜陵",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+        {
             "start": "瑜陵",
             "end": "共产主义大陆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K15线"
+        },
+
+        // M1线
+        {
             "start": "福原枢纽",
             "end": "赞服苏维埃根据地",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "赞服苏维埃根据地",
             "end": "福原枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "赞服苏维埃根据地",
             "end": "flam的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "flam的家",
             "end": "赞服苏维埃根据地",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "flam的家",
             "end": "x_xGe海灯塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "x_xGe海灯塔",
             "end": "flam的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "x_xGe海灯塔",
             "end": "末影镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "末影镇",
             "end": "x_xGe海灯塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "末影镇",
             "end": "ricky的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "ricky的家",
             "end": "末影镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "ricky的家",
             "end": "红牛岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "红牛岛",
             "end": "ricky的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "红牛岛",
             "end": "SCP驻赞服总办事处",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+        {
             "start": "SCP驻赞服总办事处",
             "end": "红牛岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "M1线"
+        },
+
+        // 爱国线
+        {
             "start": "夏尔镇",
             "end": "ACE的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "ACE的家",
             "end": "夏尔镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "ACE的家",
             "end": "夏尔村民农场南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "夏尔村民农场南",
             "end": "ACE的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "夏尔村民农场南",
             "end": "slantyone的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "slantyone的家",
             "end": "夏尔村民农场南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "slantyone的家",
             "end": "晓枫故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "晓枫故居",
             "end": "slantyone的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "晓枫故居",
             "end": "苏瑕瑜的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "苏瑕瑜的家",
             "end": "晓枫故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "苏瑕瑜的家",
             "end": "错误岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "错误岛",
             "end": "苏瑕瑜的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "错误岛",
             "end": "寒月的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+        {
             "start": "寒月的家",
             "end": "错误岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "爱国线"
+        },
+
+        // 少女前线
+        {
             "start": "applezhou的家",
             "end": "夏尔村民农场南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "少女前线"
+        },
+        {
             "start": "夏尔村民农场南",
             "end": "applezhou的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "少女前线"
+        },
+        {
             "start": "夏尔村民农场南",
             "end": "格里芬",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "少女前线"
+        },
+        {
             "start": "格里芬",
             "end": "夏尔村民农场南",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "少女前线"
+        },
+
+        // 东方线
+        {
             "start": "中央枢纽",
             "end": "河神枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "河神枢纽",
             "end": "中央枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "河神枢纽",
             "end": "miaomiao故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "miaomiao故居",
             "end": "河神枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "miaomiao故居",
             "end": "lost的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "lost的家",
             "end": "miaomiao故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "lost的家",
             "end": "Byepast家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "Byepast家旧址",
             "end": "lost的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "Byepast家旧址",
             "end": "福原枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "福原枢纽",
             "end": "Byepast家旧址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "福原枢纽",
             "end": "KK的安置房",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "KK的安置房",
             "end": "福原枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "KK的安置房",
             "end": "猫音小村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "猫音小村",
             "end": "KK的安置房",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "猫音小村",
             "end": "艾德拉斯军事基地",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "艾德拉斯军事基地",
             "end": "猫音小村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "艾德拉斯军事基地",
             "end": "风车镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+        {
             "start": "风车镇",
             "end": "艾德拉斯军事基地",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "东方线"
+        },
+
+        // 二狗线
+        {
             "start": "miaomiao故居",
             "end": "狗哥的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "二狗线"
+        },
+        {
             "start": "狗哥的家",
             "end": "miaomiao故居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "二狗线"
+        },
+
+        // 发如雪线
+        {
             "start": "风之镇",
             "end": "终南山",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "如雪线"
+        },
+        {
             "start": "终南山",
             "end": "风之镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "如雪线"
+        },
+        {
             "start": "终南山",
             "end": "魔瓶的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "如雪线"
+        },
+        {
             "start": "魔瓶的家",
             "end": "终南山",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "如雪线"
+        },
+
+        // 参宿线
+        {
             "start": "KINDEL的家",
             "end": "tz的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "tz的家",
             "end": "KINDEL的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "tz的家",
             "end": "雪亭",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "雪亭",
             "end": "tz的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "雪亭",
             "end": "双子阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "双子阁",
             "end": "雪亭",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "双子阁",
             "end": "ij枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+        {
             "start": "ij枢纽",
             "end": "双子阁",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "参宿线"
+        },
+
+        // 雪国线
+        {
             "start": "春暖花开",
             "end": "寒意镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "寒意镇",
             "end": "春暖花开",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "寒意镇",
             "end": "黄老菊的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "黄老菊的家",
             "end": "寒意镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "黄老菊的家",
             "end": "七魂的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "七魂的家",
             "end": "黄老菊的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "七魂的家",
             "end": "新手村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "新手村",
             "end": "七魂的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "新手村",
             "end": "天照遗址",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+        {
             "start": "天照遗址",
             "end": "新手村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "雪国线"
+        },
+
+        // 德意志线
+        {
             "start": "黄老菊的家",
             "end": "楚格峰",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "德意志线"
+        },
+        {
             "start": "楚格峰",
             "end": "黄老菊的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "德意志线"
+        },
+        {
             "start": "楚格峰",
             "end": "柯尼斯堡",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "德意志线"
+        },
+        {
             "start": "柯尼斯堡",
             "end": "楚格峰",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "德意志线"
+        },
+
+        // 奥兹线
+        {
             "start": "寒意镇",
             "end": "Meowth的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "奥兹线"
+        },
+        {
             "start": "Meowth的家",
             "end": "寒意镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "奥兹线"
+        },
+
+        // 新风线
+        {
             "start": "沙漠枢纽",
             "end": "糖湖镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "新风线"
+        },
+        {
             "start": "糖湖镇",
             "end": "沙漠枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "新风线"
+        },
+
+        // 鱼塔线
+        {
             "start": "河神枢纽",
             "end": "多拉鱼塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "鱼塔线"
+        },
+        {
             "start": "多拉鱼塔",
             "end": "河神枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "鱼塔线"
+        },
+
+        // 伊苏线
+        {
             "start": "沙河枢纽",
             "end": "泽民",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "泽民",
             "end": "沙河枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "泽民",
             "end": "骨乐园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "骨乐园",
             "end": "泽民",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "骨乐园",
             "end": "寺院化石博物馆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "寺院化石博物馆",
             "end": "骨乐园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "寺院化石博物馆",
             "end": "上海老江",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "上海老江",
             "end": "寺院化石博物馆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "上海老江",
             "end": "地下城",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "地下城",
             "end": "上海老江",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "地下城",
             "end": "地下城北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "地下城北",
             "end": "地下城",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "地下城",
             "end": "猫耳的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "猫耳的家",
             "end": "地下城",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "猫耳的家",
             "end": "猫村枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "猫村枢纽",
             "end": "猫耳的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "猫村枢纽",
             "end": "四方枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "四方枢纽",
             "end": "猫村枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "四方枢纽",
             "end": "照桥",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+        {
             "start": "照桥",
             "end": "四方枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "伊苏线"
+        },
+
+        // X专线
+        {
             "start": "狼窝",
             "end": "象头岛",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "X专线"
+        },
+        {
             "start": "象头岛",
             "end": "狼窝",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "X专线"
+        },
+
+        // 比利线
+        {
             "start": "多拉的家",
             "end": "北方村庄",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "比利线"
+        },
+        {
             "start": "北方村庄",
             "end": "多拉的家",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "比利线"
+        },
+
+        // 风光线
+        {
             "start": "风之镇",
             "end": "羊驼小屋",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "羊驼小屋",
             "end": "风之镇",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "羊驼小屋",
             "end": "风之国塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "风之国塔",
             "end": "羊驼小屋",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "风之国塔",
             "end": "风之镇西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "风之镇西",
             "end": "风之国塔",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "风之镇西",
             "end": "风之新镇北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        },
+        {
             "start": "风之新镇北",
             "end": "风之镇西",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "风光线"
+        }, 
+
+        // 血汗线
+        {
             "start": "楚格峰",
             "end": "新手村",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "血汗线"
+        },
+        {
             "start": "新手村",
             "end": "楚格峰",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "血汗线"
+        },
+
+        // 吕梨线
+        {
             "start": "共产主义大陆",
             "end": "瑜陵",
-            "stationArray": [0, 0],
-            "line": ""
+            "line": "吕梨线"
         }, {
             "start": "瑜陵",
             "end": "共产主义大陆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "吕梨线"
+        }, 
+
+        // 波止线
+        {
             "start": "提尼岛工业园",
             "end": "地下城北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "波止线"
+        },
+        {
             "start": "地下城北",
             "end": "提尼岛工业园",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "波止线"
+        },
+        {
             "start": "上海老江",
             "end": "地下城北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "波止线"
+        },
+        {
             "start": "地下城北",
             "end": "上海老江",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "波止线"
+        },
+
+        // K16线
+        {
             "start": "共产主义大陆",
             "end": "四方枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K16线"
+        },
+        {
             "start": "四方枢纽",
             "end": "共产主义大陆",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K16线"
+        },
+        {
             "start": "四方枢纽",
             "end": "影山居",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K16线"
+        },
+        {
             "start": "影山居",
             "end": "四方枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K16线"
+        },
+
+        // K17线
+        {
             "start": "运通枢纽",
             "end": "同妹在樱花下看麦田",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K17线"
+        },
+        {
             "start": "同妹在樱花下看麦田",
             "end": "运通枢纽",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K17线"
+        },
+        {
             "start": "同妹在樱花下看麦田",
             "end": "村下屋根",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K17线"
+        },
+        {
             "start": "村下屋根",
             "end": "同妹在樱花下看麦田",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K17线"
+        },
+        {
             "start": "村下屋根",
             "end": "风之新镇北",
-            "stationArray": [0, 0],
-            "line": ""
-        }, {
+            "line": "K17线"
+        },
+        {
             "start": "风之新镇北",
             "end": "村下屋根",
-            "stationArray": [0, 0],
-            "line": ""
+            "line": "K17线"
         }
     
     ]
