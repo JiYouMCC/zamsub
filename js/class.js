@@ -199,17 +199,16 @@ function RanderSVG(path, lines, stations, parentID) {
   var station_text = gStation.selectAll("text")
     .data(path)
     .enter()
-    .append("a");
-  station_text.attr("xlink:href", function(d) {
-      return "station.html?station=" + d;
-    }).attr("xlink:target", "_blank")
+    .append("a")
+    .classed('station',true);
+  station_text.attr("xlink:href", function(d) {return "station.html?station=" + d;})
+    .attr("xlink:target", "_blank")
     .append("text")
     .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
     .attr("y", function(d) {
       return 10 + path.indexOf(d) * 26 + 10
     })
     .attr("alignment-baseline", "middle")
-    .attr("fill", '#007bff')
     .text(function(d) {
       return d;
     });
@@ -226,16 +225,31 @@ function RanderSVG(path, lines, stations, parentID) {
     oldLine = line.name;
     var lColor = line.color;
     //框
-    gLine.append("rect")
+    var ahref = gLine.append("a").attr("xlink:href", "line.html?line=" + line.name)
+      .attr("xlink:target", "_blank")
+      .classed('lineRect',true);
+    ahref.append("rect")
       .attr("x", 10)
       .attr("y", 10 + 16 + 10 / 2 + 26 * i - 16 / 2)
       .attr("width", 16 * 4)
       .attr("height", 16)
       .attr("fill", lColor)
+      .attr("stroke", lColor)
       .attr("rx", 5)
       .attr("ry", 5);
     //名字
-    gLine.append("text")
+    ahref
+      .append("text")
+      .attr("x", 10 + 16 * 4 / 2)
+      .attr("y", 10 + 16 + 10 / 2 + 26 * i + 1)
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "middle")
+      .text(line.name)
+      .attr("font-size", "12px")
+      .attr("fill", lColor);
+    ahref
+      .append("text")
+      .classed('coverText',true)
       .attr("x", 10 + 16 * 4 / 2)
       .attr("y", 10 + 16 + 10 / 2 + 26 * i + 1)
       .attr("text-anchor", "middle")
@@ -309,7 +323,7 @@ function CalLineDistance(line, stations, edges) {
   var sum = 0;
   for (i in edges) {
     var edge = edges[i];
-    if (line.stations.includes(edge.start) && line.stations.includes(edge.end)) {
+    if (edge.line == line) {
       var tag = [edge.start.name, edge.end.name].sort().join();
       if (edgeArray[tag]) {
         edgeArray[tag] = Math.max(edge.distance, edgeArray[tag]);
@@ -385,16 +399,15 @@ function RenderLineMap(line, edges, parentID) {
     .attr("r", 3)
     .attr("stroke", "black")
     .attr("fill", "white")
-    .attr("stroke-width", "2");
+    .attr("stroke-width", "2")
+    .append("svg:title")
+    .text(function(station) { return station.name; });;
 
   var paths = [];
   for (i in edges) {
     var edge = edges[i];
-    if (line.stations.includes(edge.start) && line.stations.includes(edge.end)) {
-      var checkLine = FindLine(edge.start, edge.end, lines);
-      if (checkLine == line) {
+    if (edge.line == line) {
         paths.push([edge.start, edge.end]);
-      }
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
@@ -410,7 +423,6 @@ function RenderLineMap(line, edges, parentID) {
       })
       .attr("stroke-width", 2)
       .attr("stroke", function(p) {
-        var line = FindLine(p[0], p[1], lines);
         return line.color;
       });
   }
