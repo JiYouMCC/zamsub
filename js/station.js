@@ -88,10 +88,18 @@ function updateInfo() {
     }
 
     var relatedLines = GetLines(station, lines);
+    table = document.getElementById("s_lines");
     document.getElementById("s_lines").innerText = ""
     for (i in relatedLines) {
       var relatedLine = relatedLines[i];
-      document.getElementById("s_lines").innerText += relatedLine.name + '\r\n';
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td");
+      var a = document.createElement("a");
+      a.innerText = relatedLine.name;
+      a.href = "line.html?line=" + relatedLine.name;
+      td1.appendChild(a);
+      tr.appendChild(td1);
+      table.appendChild(tr);
     }
   }
 }
@@ -126,6 +134,6 @@ function innerUpdate(stationName) {
 
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
-var edges = InitEdge(subData, stations);
+var edges = InitEdge(subData, stations, lines);
 InitDom(stations, lines);
 getLinkParam();

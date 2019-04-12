@@ -7,9 +7,19 @@
     <title>赞服地铁通</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style type="text/css">
-      text:hover {
+      .station text {
+          fill: #007bff;
+      }
+      .station:hover text {
           fill: #0056b3;
           text-decoration: underline;
+      }
+      .lineRect:hover rect {
+        fill: white;
+      }
+
+      .lineRect:hover .coverText {
+        fill: transparent;
       }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -30,6 +40,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="station.html">车站</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="line.html">线路</a>
             </li>
           </ul>
         </div>
