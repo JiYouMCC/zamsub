@@ -374,10 +374,12 @@ function RenderLineMap(line, edges, parentID) {
   var width = 25 + (x_max - x_min) / 10 + 25;
   var height = 25 + (z_max - z_min) / 10 + 25;
 
+  var parent = document.getElementById("map");
+  parent.setAttribute('style', 'display: block;max-width:100%;width:' + width +'px');
   var svg = d3.select("#" + parentID)
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("viewBox", "0 0 " + width + " " + height)
+    .attr("width", "100%");
 
   //分组
   var gPath = svg.append("g");
