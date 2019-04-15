@@ -24,10 +24,11 @@
   <script type="text/javascript">
     var stations = InitStation(subData);
     var lines = InitLine(subData, stations);
-    var x_min = 0;
-    var x_max = 0;
-    var z_min = 0;
-    var z_max = 0;
+    var edges = InitEdge(subData, stations, lines);
+    var x_min = Number.MAX_VALUE;
+    var x_max = -Number.MAX_VALUE;
+    var z_min = Number.MAX_VALUE;
+    var z_max = -Number.MAX_VALUE;
     for (i in stations) {
       var locations = stations[i].location;
       var x = 0;
@@ -81,17 +82,16 @@
       .attr("cy", function(station) {
         return 10 - z_min / 10 + station.location[0].z / 10
       })
-        .attr("r", 3)
+        .attr("r", 4)
         .attr("stroke", "black")
         .attr("fill", "white")
         .attr("stroke-width", "2");
 
     var paths = [];
-    for (i in subData.paths){
+    for (i in edges){
        var path = subData.paths[i];
-        var start = FindStation(path[0], stations);
-        var end = FindStation(path[1], stations);
-        paths.push([start, end]);
+        var edge = edges[i];
+        paths.push([edge.start, edge.end]);
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
@@ -105,7 +105,7 @@
       var y2 = 10 - z_min / 10 + p[1].location[0].z / 10;
       return x1 + ","+ y1 +" "+ x2 +"," + y2;
     })
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 5)
       .attr("stroke", function(p) {
         var line = FindLine(p[0], p[1], lines);
         return line.color;
