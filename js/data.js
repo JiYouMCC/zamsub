@@ -575,7 +575,9 @@ var subData = {
             'location': [-1839, 40, -4501]
         },
         '新手村': {
-            'location': [-3987, 40, -4502]
+            'location': [-3987, 40, -4502],
+            'description': '我只是个新手村不知道怎么介绍自己。',
+            'img': 'station_xinshoucun.jpg'
         },
 
         //X专线
