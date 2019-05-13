@@ -422,7 +422,9 @@ var subData = {
             'location': [2000, 40, -3071]
         },
         'SCP驻赞服总办事处': {
-            'location': [3454, 47, -3650]
+            'location': [3454, 47, -3650],
+            "img": "station_scp.jpg",
+            "description": "内部地铁线路通向多种刷怪笼（塔）"
         },
 
         //K9线
