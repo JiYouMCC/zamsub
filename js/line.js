@@ -46,15 +46,10 @@ function updateInfo() {
         }
       }
     }
-    //TODO 线路排序算法待定
-    /*relatedLines= relatedLines.sort(function(a,b){
-      if (a.name > b.name) {
-        return 1;
-      } else if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });*/
+    // 按照拼音排序
+    relatedLines = relatedLines.sort(function(line1, line2){
+      return line1.name.localeCompare(line2.name)
+    });
     table = document.getElementById("l_lines");
     document.getElementById("l_lines").innerText = ""
     for (i in relatedLines) {
