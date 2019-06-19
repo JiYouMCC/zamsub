@@ -89,7 +89,11 @@ function updateInfo() {
 
     var relatedLines = GetLines(station, lines);
     table = document.getElementById("s_lines");
-    document.getElementById("s_lines").innerText = ""
+    document.getElementById("s_lines").innerText = "";
+    // 按照拼音排序
+    relatedLines = relatedLines.sort(function(line1, line2){
+      return line1.name.localeCompare(line2.name)
+    });
     for (i in relatedLines) {
       var relatedLine = relatedLines[i];
       var tr = document.createElement("tr");
