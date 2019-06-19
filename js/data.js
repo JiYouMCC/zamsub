@@ -2919,12 +2919,22 @@ var subData = {
         },
         {
             "start": "终南山鸟居",
+            "end": "Yusir的家",
+            "line": "平妖线"
+        },
+        {
+            "start": "Yusir的家",
+            "end": "终南山鸟居",
+            "line": "平妖线"
+        },
+        {
+            "start": "Yusir的家",
             "end": "COOREA的家",
             "line": "平妖线"
         },
         {
             "start": "COOREA的家",
-            "end": "终南山鸟居",
+            "end": "Yusir的家",
             "line": "平妖线"
         },
         {
@@ -2958,13 +2968,13 @@ var subData = {
             "line": "平妖线"
         },
         {
-            "start": "小明的家",
+            "start": "三家半",
             "end": "迦勒底",
             "line": "平妖线"
         },
         {
             "start": "迦勒底",
-            "end": "小明的家",
+            "end": "三家半",
             "line": "平妖线"
         }
     ]
