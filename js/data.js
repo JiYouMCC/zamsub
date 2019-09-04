@@ -122,7 +122,7 @@ var subData = {
             'img': 'station_xiximidejia.jpg'
         },
         'KK的沙漠别墅': {
-            'location': [206, 40, -751],
+            'location': [206, 40, -766],
             'description': 'KK的第一个赞服建筑，地皮机场征用，被迫搬迁，现已荒废。',
             'img': 'station_kkdeshamobieshu.jpg'
         },
