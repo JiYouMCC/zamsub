@@ -409,7 +409,10 @@ var subData = {
             'location': [-4599, 40, -5340]
         },
         '北境平原': {
-            'location': [-4600, 40, -6901]
+            'location': [
+                [-4600, 40, -6901],
+                [-4528, 71, -6896],
+            ]
         },
         'MoKoHom的家': {
             'location': [-5870, 40, -6899]
@@ -753,9 +756,7 @@ var subData = {
         },
 
         // 北境线
-        '北境平原（北境线）': {
-            'location': [-4528, 71, -6896]
-        },
+        // 北境平原
         '雾之湖中心地标点': {
             'location': [-4073, 74, -6896]
         }
@@ -967,7 +968,7 @@ var subData = {
         },
         '北境线': {
             "color": '#0000ff',
-            "stations": ['北境平原（北境线）','雾之湖中心地标点']
+            "stations": ['北境平原','雾之湖中心地标点']
         }
     },
     'paths': [
@@ -2772,21 +2773,25 @@ var subData = {
         {
             "start": "二周年活动场地",
             "end": "北境平原",
+            "stationArray": [0, 0],
             "line": "雪国线"
         },
         {
             "start": "北境平原",
             "end": "二周年活动场地",
+            "stationArray": [0, 0],
             "line": "雪国线"
         },
         {
             "start": "北境平原",
             "end": "MoKoHom的家",
+            "stationArray": [0, 0],
             "line": "雪国线"
         },
         {
             "start": "MoKoHom的家",
             "end": "北境平原",
+            "stationArray": [0, 0],
             "line": "雪国线"
         },
 
@@ -3327,13 +3332,15 @@ var subData = {
 
         // 北境线
         {
-            "start": "北境平原（北境线）",
+            "start": "北境平原",
             "end": "雾之湖中心地标点",
+            "stationArray": [1, 0],
             "line": "北境线"
         },
         {
             "start": "雾之湖中心地标点",
-            "end": "北境平原（北境线）",
+            "end": "北境平原",
+            "stationArray": [0, 1],
             "line": "北境线"
         }
     ]
