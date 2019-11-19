@@ -51,7 +51,6 @@ var subData = {
             'location': [681, 40, -1300]
         },
         // xiximi的家
-        // 象头岛
         //中央枢纽
         'LSF的家': {
             'location': [859, 40, 1036]
@@ -600,11 +599,6 @@ var subData = {
             'description': '距主城最近又最丑还没被强拆的家。',
             'img': 'station_langwo.jpg'
         },
-        '象头岛': {
-            'location': [860, 20, 20],
-            'description': '大象头部形状的一个岛屿。',
-            'img': 'station_xiangtoudao.jpg'
-        },
 
         // K16线
         //'共产主义大陆': {'location': [-945, 40, 4329]},
@@ -702,7 +696,7 @@ var subData = {
         },
         'K1线': {
             "color": "#3399CC",
-            "stations": ['妹控镇南', 'applezhou家旧址', '星海山顶洞', '雨的故事的家', 'xiximi的家', '象头岛', '中央枢纽', 'LSF的家', '无人沙村', '魔瓶的家', '森林枢纽', '未终','夏尔镇'],
+            "stations": ['妹控镇南', 'applezhou家旧址', '星海山顶洞', '雨的故事的家', 'xiximi的家', '中央枢纽', 'LSF的家', '无人沙村', '魔瓶的家', '森林枢纽', '未终','夏尔镇'],
             "description": "K1线是赞铁一局的第一条线路，由魔瓶建造，赞铁一局运营。K1线因挖掘工具由KK提供而得名，修建初衷为连通中央枢纽与魔瓶的家，后与原K3线合并，延长至妹控镇南与夏尔镇。2018年4月17日前开通。"
         },
         'K2线': {
@@ -974,24 +968,14 @@ var subData = {
         }, 
         {
             "start": "xiximi的家",
-            "end": "象头岛",
-            "line": "K1线"
-        }, 
-        {
-            "start": "象头岛",
-            "end": "xiximi的家",
-            "line": "K1线"
-        }, 
-        {
-            "start": "象头岛",
             "end": "中央枢纽",
             "line": "K1线"
         }, 
         {
             "start": "中央枢纽",
-            "end": "象头岛",
+            "end": "xiximi的家",
             "line": "K1线"
-        }, 
+        },
         {
             "start": "中央枢纽",
             "end": "LSF的家",
