@@ -121,12 +121,6 @@ var subData = {
             'description': 'xiximi建在云上高山的家。',
             'img': 'station_xiximidejia.jpg'
         },
-        'KK的沙漠别墅': {
-            'location': [206, 40, -766],
-            'description': 'KK的第一个赞服建筑，地皮机场征用，被迫搬迁，现已荒废。',
-            'img': 'station_kkdeshamobieshu.jpg'
-        },
-        // 城北枢纽
         '彩虹半岛': {
             'location': [-410, 40, -889],
             'description': '彩虹镇东南沿海的半岛。',
@@ -770,7 +764,7 @@ var subData = {
         },
         'K2线': {
             "color": "#999999",
-            "stations": ['flam的家', 'xiximi的家', 'KK的沙漠别墅', '城北枢纽', '彩虹半岛', '彩虹镇洲际酒店', '彩虹镇', '三界枢纽', '妹控镇', 'xiqiao的家', '寒月家旧址', 'ricky的家', '西门吹雪的家'],
+            "stations": ['flam的家', 'xiximi的家', '彩虹半岛', '彩虹镇洲际酒店', '彩虹镇', '三界枢纽', '妹控镇', 'xiqiao的家', '寒月家旧址', 'ricky的家', '西门吹雪的家'],
             "description": "K2线是赞服第一条有水下隧道的线路，由lettit与魔瓶建造，赞铁一局运营。修建初衷为连通妹控镇、彩虹镇与主城，后主城-城北枢纽段被赞方拆除废弃，K2线延长至flam的家与ricky的家。2018年4月17日前开通。"
         },
         'K3线': {
@@ -1151,32 +1145,12 @@ var subData = {
         },
         {
             "start": "xiximi的家",
-            "end": "KK的沙漠别墅",
-            "line": "K2线"
-        },
-        {
-            "start": "KK的沙漠别墅",
-            "end": "xiximi的家",
-            "line": "K2线"
-        },
-        {
-            "start": "KK的沙漠别墅",
-            "end": "城北枢纽",
-            "line": "K2线"
-        },
-        {
-            "start": "城北枢纽",
-            "end": "KK的沙漠别墅",
-            "line": "K2线"
-        },
-        {
-            "start": "城北枢纽",
             "end": "彩虹半岛",
             "line": "K2线"
         },
         {
             "start": "彩虹半岛",
-            "end": "城北枢纽",
+            "end": "xiximi的家",
             "line": "K2线"
         },
         {
