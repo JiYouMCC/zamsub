@@ -190,11 +190,7 @@ var subData = {
         },
 
         //东方线
-        // 中央枢纽
-        '河神枢纽': {
-            'location': [1305, 25, 436]
-        },
-        'miaomiao故居': {
+        '橘子的家': {
             'location': [1919, 40, 160]
         },
         'lost的家': {
@@ -220,7 +216,7 @@ var subData = {
         },
 
         //二狗线
-        // miaomiao故居
+        // 橘子的家
         '狗哥的家': {
             'location': [2315, 40, 140]
         },
@@ -846,12 +842,12 @@ var subData = {
         },
         '东方线': {
             "color": "#CC00FF",
-            "stations": ['中央枢纽', '河神枢纽', 'miaomiao故居', 'lost的家', 'Byepast家旧址', '福原枢纽', 'KK的安置房', '猫音小村', '艾德拉斯军事基地', '风车镇'],
+            "stations": ['橘子的家', 'lost的家', 'Byepast家旧址', '福原枢纽', 'KK的安置房', '猫音小村', '艾德拉斯军事基地', '风车镇'],
             "description": "东方线由Byepast建造，魔瓶改造，赞铁一局代运营。修建初衷为连通中央枢纽与Byepast的家，后延长至风车镇。2018年4月17日前开通。"
         },
         '二狗线': {
             "color": "#9999CC",
-            "stations": ['miaomiao故居', '狗哥的家'],
+            "stations": ['橘子的家', '狗哥的家'],
             "description": "二狗线由魔瓶建造，赞铁一局运营。二狗线由KK命名，修建初衷为连通狗哥的家与miaomiao的家。2018年7月1日开通。"
         },
         '发如雪线': {
@@ -2458,33 +2454,13 @@ var subData = {
 
         // 东方线
         {
-            "start": "中央枢纽",
-            "end": "河神枢纽",
-            "line": "东方线"
-        },
-        {
-            "start": "河神枢纽",
-            "end": "中央枢纽",
-            "line": "东方线"
-        },
-        {
-            "start": "河神枢纽",
-            "end": "miaomiao故居",
-            "line": "东方线"
-        },
-        {
-            "start": "miaomiao故居",
-            "end": "河神枢纽",
-            "line": "东方线"
-        },
-        {
-            "start": "miaomiao故居",
+            "start": "橘子的家",
             "end": "lost的家",
             "line": "东方线"
         },
         {
             "start": "lost的家",
-            "end": "miaomiao故居",
+            "end": "橘子的家",
             "line": "东方线"
         },
         {
@@ -2550,13 +2526,13 @@ var subData = {
 
         // 二狗线
         {
-            "start": "miaomiao故居",
+            "start": "橘子的家",
             "end": "狗哥的家",
             "line": "二狗线"
         },
         {
             "start": "狗哥的家",
-            "end": "miaomiao故居",
+            "end": "橘子的家",
             "line": "二狗线"
         },
 
