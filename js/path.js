@@ -107,6 +107,13 @@ function getResult() {
 function getLinkParam() {
     var linkStr = document.URL.split('?');
     if (linkStr.length < 2) {
+        document.getElementById('start_stations_input').value = '出生点';
+        var toName = '出生点';
+        do {
+            toName = stations[Math.floor(Math.random() * stations.length)].name;
+        } while(toName == '出生点')
+        
+        document.getElementById('end_stations_input').value = toName;
         return;
     }
     var param = linkStr[1];
