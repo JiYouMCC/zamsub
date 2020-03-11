@@ -106,25 +106,31 @@ function getResult() {
 
 function getLinkParam() {
     var linkStr = document.URL.split('?');
-    if (linkStr.length < 2) {
+    if (linkStr.length >=2) {
+        var param = linkStr[1];
+        var params = param.split('&');
+        var result = {};
+        for (p in params) {
+            var keyvalue = params[p].split('=');
+            result[keyvalue[0]] = decodeURI(keyvalue[1]);
+        }
+        document.getElementById('start_stations_input').value = result.start;
+        document.getElementById('end_stations_input').value = result.end;
+    }
+
+    if(!document.getElementById('start_stations_input').value) {
         document.getElementById('start_stations_input').value = '出生点';
+    }
+
+    if(!document.getElementById('end_stations_input').value) {
         var toName = '出生点';
         do {
             toName = stations[Math.floor(Math.random() * stations.length)].name;
         } while(toName == '出生点')
-        
+
         document.getElementById('end_stations_input').value = toName;
-        return;
     }
-    var param = linkStr[1];
-    var params = param.split('&');
-    var result = {};
-    for (p in params) {
-        var keyvalue = params[p].split('=');
-        result[keyvalue[0]] = decodeURI(keyvalue[1]);
-    }
-    document.getElementById('start_stations_input').value = result.start;
-    document.getElementById('end_stations_input').value = result.end;
+
     getResult();
 }
 
