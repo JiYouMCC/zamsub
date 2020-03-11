@@ -203,6 +203,9 @@ var subData = {
         '狗哥村庄': {
             'location': [2392, 40, 159]
         },
+        'Xalloy的家': {
+            'location': [3450, 40, 161]
+        },
 
         //K4线
         '稻之乡南': {
@@ -859,7 +862,7 @@ var subData = {
         },
         '二狗线': {
             "color": '#9999CC',
-            "stations": ['橘子的家','狗哥村庄']
+            "stations": ['橘子的家', '狗哥村庄', 'Xalloy的家']
         }
     },
     'paths': [
@@ -2990,6 +2993,16 @@ var subData = {
         {
             "start": "狗哥村庄",
             "end": "橘子的家",
+            "line": "二狗线"
+        },
+        {
+            "start": "Xalloy的家",
+            "end": "狗哥村庄",
+            "line": "二狗线"
+        },
+        {
+            "start": "狗哥村庄",
+            "end": "Xalloy的家",
             "line": "二狗线"
         }
     ]
