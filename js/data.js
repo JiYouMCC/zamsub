@@ -893,6 +893,10 @@ var subData = {
         '波止线': {
             "color": '#66CCFF',
             "stations": ['瑜庭', '神肥国度']
+        },
+        '血汗线': {
+            "color": '#CCFFFF',
+            "stations": ['新手村', '楚格峰']
         }
     },
     'paths': [
@@ -3132,6 +3136,18 @@ var subData = {
             "start": "新岩石之令",
             "end": "格莱斯枢纽",
             "line": "K11线"
+        },
+
+        // 血汗线
+        {
+            "start": "新手村",
+            "end": "楚格峰",
+            "line": "血汗线"
+        },
+        {
+            "start": "楚格峰",
+            "end": "新手村",
+            "line": "血汗线"
         }
     ]
 }
