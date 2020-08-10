@@ -203,6 +203,9 @@ var subData = {
         '狗哥村庄': {
             'location': [2392, 40, 159]
         },
+        '苍樱寮': {
+            'location': [2860, 40, 159]
+        },
         'Xalloy的家': {
             'location': [3450, 40, 161]
         },
@@ -881,7 +884,7 @@ var subData = {
         },
         '二狗线': {
             "color": '#9999CC',
-            "stations": ['橘子的家', '狗哥村庄', 'Xalloy的家']
+            "stations": ['橘子的家', '狗哥村庄', '苍樱寮', 'Xalloy的家']
         },
         '波止线': {
             "color": '#66CCFF',
@@ -3069,12 +3072,22 @@ var subData = {
             "line": "二狗线"
         },
         {
-            "start": "Xalloy的家",
+            "start": "苍樱寮",
             "end": "狗哥村庄",
             "line": "二狗线"
         },
         {
             "start": "狗哥村庄",
+            "end": "苍樱寮",
+            "line": "二狗线"
+        },
+        {
+            "start": "Xalloy的家",
+            "end": "苍樱寮",
+            "line": "二狗线"
+        },
+        {
+            "start": "苍樱寮",
             "end": "Xalloy的家",
             "line": "二狗线"
         },
