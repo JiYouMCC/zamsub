@@ -445,7 +445,7 @@ function RenderLineMap(line, edges, parentID) {
         if (line.selfemployed) {
           return "10,10";
         }
-        return "1"
+        return ""
       })
       .attr("stroke", function(p) {
         return line.color;
