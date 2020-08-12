@@ -58,8 +58,6 @@
     var width = 10 + (x_max - x_min) / 10 + 10;
     var height = 10 + (z_max - z_min) / 10 + 10;
 
-    console.log(width)
-    console.log(height)
     var svg = d3.select("#map")
         .append("svg")
         .attr("width", width)
@@ -82,15 +80,20 @@
       .attr("cy", function(station) {
         return 10 - z_min / 10 + station.location[0].z / 10
       })
-        .attr("r", 4)
+        .attr("r", 5)
         .attr("stroke", "black")
         .attr("fill", "white")
-        .attr("stroke-width", "2");
+        .attr("stroke-width", "2")
+        .append("svg:title")
+        .text(function(station) { return station.name; });
 
     var paths = [];
     for (i in edges){
         var path = subData.paths[i];
         var edge = edges[i];
+        if (IsDuplicatePath(edge, edges)) {
+          continue;
+        }
         if (edge.polyline.length > 0) {
           paths.push([edge.start, edge.end, edge.polyline]);
         } else {
@@ -121,6 +124,14 @@
     })
       .attr("fill", "none")
       .attr("stroke-width", 5)
+      .attr("stroke-linecap", "round")
+      .attr("stroke-dasharray", function(p) {
+        var line = FindLine(p[0], p[1], lines);
+        if (line.selfemployed) {
+          return "10,10";
+        }
+        return "1"
+      })
       .attr("stroke", function(p) {
         var line = FindLine(p[0], p[1], lines);
         return line.color;
