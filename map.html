@@ -89,9 +89,13 @@
 
     var paths = [];
     for (i in edges){
-       var path = subData.paths[i];
+        var path = subData.paths[i];
         var edge = edges[i];
-        paths.push([edge.start, edge.end]);
+        if (edge.polyline.length > 0) {
+          paths.push([edge.start, edge.end, edge.polyline]);
+        } else {
+          paths.push([edge.start, edge.end]);
+        }
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
@@ -99,12 +103,23 @@
       .append("polyline");
 
     path_g.attr("points", function(p) {
-      var x1 = 10 - x_min / 10 + p[0].location[0].x / 10;
-      var y1 = 10 - z_min / 10 + p[0].location[0].z / 10;
-      var x2 = 10 - x_min / 10 + p[1].location[0].x / 10;
-      var y2 = 10 - z_min / 10 + p[1].location[0].z / 10;
-      return x1 + ","+ y1 +" "+ x2 +"," + y2;
+      if (p.length == 2) {
+          var x1 = 10 - x_min / 10 + p[0].location[0].x / 10;
+          var y1 = 10 - z_min / 10 + p[0].location[0].z / 10;
+          var x2 = 10 - x_min / 10 + p[1].location[0].x / 10;
+          var y2 = 10 - z_min / 10 + p[1].location[0].z / 10;
+          return x1 + "," + y1 + " " + x2 + "," + y2;
+        } else {
+          var result = "";
+          for (var i = 0; i < p[2].length; i++) {
+            var x = 10 - x_min / 10 + p[2][i].x / 10;
+            var y = 10 - z_min / 10 + p[2][i].z / 10;
+            result += x +"," + y + " ";
+          }
+          return result;
+        }
     })
+      .attr("fill", "none")
       .attr("stroke-width", 5)
       .attr("stroke", function(p) {
         var line = FindLine(p[0], p[1], lines);

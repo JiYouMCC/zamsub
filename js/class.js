@@ -27,12 +27,13 @@ function Line(name, color, description) {
 }
 
 // class 边
-function Edge(start, end, stationArray, line) {
+function Edge(start, end, stationArray, line, polyline) {
   this.start = start;
   this.end = end;
   this.line = line;
   this.stationArray = stationArray || [0, 0];
   this.distance = Distance(start, end, stationArray);
+  this.polyline = polyline;
 }
 
 // function 初始化
@@ -76,11 +77,18 @@ function InitEdge(data, stations, lines) {
   var edges = [];
   for (var i = 0; i < data.paths.length; i++) {
     var path = data.paths[i];
+    var polyline = [];
+    if (path.polyline) {
+      for (var j = 0; j < path.polyline.length; j++) {
+        polyline.push(new Location(path.polyline[j][0], path.polyline[j][1], path.polyline[j][2]))
+      }
+    }
     var edge = new Edge(
       FindStation(path.start, stations), 
       FindStation(path.end, stations), 
       path.stationArray,
-      GetLine(path.line, lines)
+      GetLine(path.line, lines),
+      polyline
       );
     edges.push(edge);
   }
@@ -409,7 +417,11 @@ function RenderLineMap(line, edges, parentID) {
   for (i in edges) {
     var edge = edges[i];
     if (edge.line == line) {
-        paths.push([edge.start, edge.end]);
+        if(edge.polyline.length > 0) {
+          paths.push([edge.start, edge.end, edge.polyline]);
+        } else {
+          paths.push([edge.start, edge.end]);
+        }
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
@@ -417,12 +429,23 @@ function RenderLineMap(line, edges, parentID) {
       .append("polyline");
 
     path_g.attr("points", function(p) {
-        var x1 = 25 - x_min / 10 + p[0].location[0].x / 10;
-        var y1 = 25 - z_min / 10 + p[0].location[0].z / 10;
-        var x2 = 25 - x_min / 10 + p[1].location[0].x / 10;
-        var y2 = 25 - z_min / 10 + p[1].location[0].z / 10;
-        return x1 + "," + y1 + " " + x2 + "," + y2;
+        if (p.length == 2) {
+          var x1 = 25 - x_min / 10 + p[0].location[0].x / 10;
+          var y1 = 25 - z_min / 10 + p[0].location[0].z / 10;
+          var x2 = 25 - x_min / 10 + p[1].location[0].x / 10;
+          var y2 = 25 - z_min / 10 + p[1].location[0].z / 10;
+          return x1 + "," + y1 + " " + x2 + "," + y2;
+        } else {
+          var result = "";
+          for (var i = 0; i < p.length; i++) {
+            var x = 25 - x_min / 10 + p[2][i].x / 10;
+            var y = 25 - z_min / 10 + p[2][i].z / 10;
+            result += x +"," + y + " ";
+          }
+          return result;
+        }
       })
+      .attr("fill", "none")
       .attr("stroke-width", 5)
       .attr("stroke", function(p) {
         return line.color;
