@@ -18,6 +18,7 @@ function updateInfo() {
     document.getElementById("l_title").innerText = line.name;
     document.getElementById("l_title").setAttribute("style", "color:" + line.color + ";text-shadow: 0px 1px #888888,1px 0px #888888,0px -1px #888888,-1px 0px #888888;")
     RenderLineMap(line, edges, "map") 
+    document.getElementById("l_selfdeployed").innerText = line.selfemployed? "是":"否";
     document.getElementById("l_description").innerText = line.description;
     document.getElementById("l_distance").innerText = CalLineDistance(line, stations,edges) + "米";
 

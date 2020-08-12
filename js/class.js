@@ -14,11 +14,12 @@ function Station(name, location, description, img) {
 }
 
 // class 线路
-function Line(name, color, description) {
+function Line(name, color, description, selfemployed) {
   this.name = name;
   this.description = description || '这个地铁线路很懒，还没介绍自己。';
   this.stations = [];
   this.color = color;
+  this.selfemployed = selfemployed;
   this.addStation = function(station) {
     if (!this.stations.includes(station)) {
       this.stations.push(station);
@@ -63,7 +64,11 @@ function InitLine(data, stations) {
     var stationsName = data.lines[name].stations;
     var color = data.lines[name].color;
     var description = data.lines[name].description;
-    var line = new Line(name, color, description);
+    var selfemployed = false;
+    if (data.lines[name].selfemployed){
+      selfemployed = true;
+    }
+    var line = new Line(name, color, description,selfemployed);
     for (var i = 0; i < stationsName.length; i++) {
       var stationName = stationsName[i];
       line.addStation(FindStation(stationName, stations));
@@ -84,12 +89,12 @@ function InitEdge(data, stations, lines) {
       }
     }
     var edge = new Edge(
-      FindStation(path.start, stations), 
-      FindStation(path.end, stations), 
+      FindStation(path.start, stations),
+      FindStation(path.end, stations),
       path.stationArray,
       GetLine(path.line, lines),
       polyline
-      );
+    );
     edges.push(edge);
   }
 
@@ -98,30 +103,15 @@ function InitEdge(data, stations, lines) {
 
 // functions
 function FindStation(name, stations) {
-  for (var i = 0; i < stations.length; i++) {
-    var station = stations[i];
-    if (station.name == name) {
-      return station;
-    }
-  }
+  return stations.find(i => i.name == name);
 }
 
 function FindLine(station1, station2, lines) {
-  for (index in lines) {
-    var line = lines[index];
-    if (line.stations.includes(station1) && line.stations.includes(station2)) {
-      return line;
-    }
-  }
+  return lines.find(i => i.stations.includes(station1) && i.stations.includes(station2));
 }
 
 function GetLine(name, lines) {
-  for (index in lines) {
-    var line = lines[index];
-    if (line.name == name) {
-      return line;
-    }
-  }
+  return lines.find(i => i.name == name);
 }
 
 function GetLines(station, lines) {
@@ -208,8 +198,10 @@ function RanderSVG(path, lines, stations, parentID) {
     .data(path)
     .enter()
     .append("a")
-    .classed('station',true);
-  station_text.attr("xlink:href", function(d) {return "station.html?station=" + d;})
+    .classed('station', true);
+  station_text.attr("xlink:href", function(d) {
+      return "station.html?station=" + d;
+    })
     .attr("xlink:target", "_blank")
     .append("text")
     .attr("x", 10 + 16 * 4 + 10 + 10 + 10)
@@ -235,7 +227,7 @@ function RanderSVG(path, lines, stations, parentID) {
     //框
     var ahref = gLine.append("a").attr("xlink:href", "line.html?line=" + line.name)
       .attr("xlink:target", "_blank")
-      .classed('lineRect',true);
+      .classed('lineRect', true);
     ahref.append("rect")
       .attr("x", 10)
       .attr("y", 10 + 16 + 10 / 2 + 26 * i - 16 / 2)
@@ -257,7 +249,7 @@ function RanderSVG(path, lines, stations, parentID) {
       .attr("fill", lColor);
     ahref
       .append("text")
-      .classed('coverText',true)
+      .classed('coverText', true)
       .attr("x", 10 + 16 * 4 / 2)
       .attr("y", 10 + 16 + 10 / 2 + 26 * i + 1)
       .attr("text-anchor", "middle")
@@ -383,7 +375,7 @@ function RenderLineMap(line, edges, parentID) {
   var height = 25 + (z_max - z_min) / 10 + 25;
 
   var parent = document.getElementById("map");
-  parent.setAttribute('style', 'display: block;max-width:100%;width:' + width +'px');
+  parent.setAttribute('style', 'display: block;max-width:100%;width:' + width + 'px');
   var svg = d3.select("#" + parentID)
     .append("svg")
     .attr("viewBox", "0 0 " + width + " " + height)
@@ -411,17 +403,19 @@ function RenderLineMap(line, edges, parentID) {
     .attr("fill", "white")
     .attr("stroke-width", "2")
     .append("svg:title")
-    .text(function(station) { return station.name; });
+    .text(function(station) {
+      return station.name;
+    });
 
   var paths = [];
   for (i in edges) {
     var edge = edges[i];
     if (edge.line == line) {
-        if(edge.polyline.length > 0) {
-          paths.push([edge.start, edge.end, edge.polyline]);
-        } else {
-          paths.push([edge.start, edge.end]);
-        }
+      if (edge.polyline.length > 0) {
+        paths.push([edge.start, edge.end, edge.polyline]);
+      } else {
+        paths.push([edge.start, edge.end]);
+      }
     }
     var path_g = gPath.selectAll("polyline")
       .data(paths)
@@ -440,15 +434,30 @@ function RenderLineMap(line, edges, parentID) {
           for (var i = 0; i < p.length; i++) {
             var x = 25 - x_min / 10 + p[2][i].x / 10;
             var y = 25 - z_min / 10 + p[2][i].z / 10;
-            result += x +"," + y + " ";
+            result += x + "," + y + " ";
           }
           return result;
         }
       })
       .attr("fill", "none")
       .attr("stroke-width", 5)
+      .attr("stroke-dasharray", function(p) {
+        if (line.selfemployed) {
+          return "10,10";
+        }
+        return "1"
+      })
       .attr("stroke", function(p) {
         return line.color;
       });
   }
+}
+
+function IsDuplicatePath(edge, edges) {
+  var bro = edges.find(i => i.start == edge.end && i.end == edge.start);
+  if (bro) {
+    // 中文字比较
+    return edge.start.name > bro.start.name;
+  }
+  return false;
 }
