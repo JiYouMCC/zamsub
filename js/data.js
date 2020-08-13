@@ -45,7 +45,6 @@ var subData = {
         '雨的故事的家': {
             'location': [681, 40, -1300]
         },
-        // xiximi的家
         //中央枢纽
         'LSF的家': {
             'location': [859, 40, 1036]
@@ -102,11 +101,6 @@ var subData = {
         //K2线
         'flam的家': {
             'location': [1549, 40, -900]
-        },
-        'xiximi的家': {
-            'location': [691, 40, -890],
-            'description': 'xiximi建在云上高山的家。',
-            'img': 'station_xiximidejia.jpg'
         },
         '彩虹半岛': {
             'location': [-410, 40, -889],
@@ -747,12 +741,12 @@ var subData = {
         },
         'K1线': {
             "color": "#3399CC",
-            "stations": ['妹控镇南', 'applezhou家旧址', '星海山顶洞', '雨的故事的家', 'xiximi的家', '中央枢纽', 'LSF的家', '无人沙村', '魔瓶的家', '森林枢纽', '未终','夏尔镇'],
+            "stations": ['妹控镇南', 'applezhou家旧址', '星海山顶洞', '雨的故事的家', '中央枢纽', 'LSF的家', '无人沙村', '魔瓶的家', '森林枢纽', '未终','夏尔镇'],
             "description": "K1线是赞铁一局的第一条线路，由魔瓶建造，赞铁一局运营。K1线因挖掘工具由KK提供而得名，修建初衷为连通中央枢纽与魔瓶的家，后与原K3线合并，延长至妹控镇南与夏尔镇。2018年4月17日前开通。"
         },
         'K2线': {
             "color": "#999999",
-            "stations": ['flam的家', 'xiximi的家', '彩虹半岛', '彩虹镇洲际酒店', '彩虹镇', '三界枢纽', '妹控镇', 'xiqiao的家', '寒月家旧址', 'ricky的家', '西门吹雪的家'],
+            "stations": ['flam的家', '彩虹半岛', '彩虹镇洲际酒店', '彩虹镇', '三界枢纽', '妹控镇', 'xiqiao的家', '寒月家旧址', 'ricky的家', '西门吹雪的家'],
             "description": "K2线是赞服第一条有水下隧道的线路，由lettit与魔瓶建造，赞铁一局运营。修建初衷为连通妹控镇、彩虹镇与主城，后主城-城北枢纽段被赞方拆除废弃，K2线延长至flam的家与ricky的家。2018年4月17日前开通。"
         },
         'K3线': {
@@ -1021,22 +1015,12 @@ var subData = {
         }, 
         {
             "start": "雨的故事的家",
-            "end": "xiximi的家",
-            "line": "K1线"
-        }, 
-        {
-            "start": "xiximi的家",
-            "end": "雨的故事的家",
-            "line": "K1线"
-        }, 
-        {
-            "start": "xiximi的家",
             "end": "中央枢纽",
             "line": "K1线"
         }, 
         {
             "start": "中央枢纽",
-            "end": "xiximi的家",
+            "end": "雨的故事的家",
             "line": "K1线"
         },
         {
@@ -1103,22 +1087,12 @@ var subData = {
         // K2线
         {
             "start": "flam的家",
-            "end": "xiximi的家",
-            "line": "K2线"
-        },
-        {
-            "start": "xiximi的家",
-            "end": "flam的家",
-            "line": "K2线"
-        },
-        {
-            "start": "xiximi的家",
             "end": "彩虹半岛",
             "line": "K2线"
         },
         {
             "start": "彩虹半岛",
-            "end": "xiximi的家",
+            "end": "flam的家",
             "line": "K2线"
         },
         {
