@@ -11,6 +11,17 @@ function Station(name, location, description, img) {
   this.location = location;
   this.description = description || '这个地铁站很懒，还没介绍自己。';
   this.img = img || 'station_none.svg'
+  this.centerpoint = function() {
+    var sum_x = 0;
+    var sum_y = 0;
+    var sum_z = 0;
+    for (var i = 0; i < this.location.length; i++) {
+      sum_x += this.location[i].x;
+      sum_y += this.location[i].y;
+      sum_z += this.location[i].z;
+    }
+    return new Location(sum_x / this.location.length, sum_y / this.location.length, sum_z / this.location.length);
+  }
 }
 
 // class 线路
@@ -65,10 +76,10 @@ function InitLine(data, stations) {
     var color = data.lines[name].color;
     var description = data.lines[name].description;
     var selfemployed = false;
-    if (data.lines[name].selfemployed){
+    if (data.lines[name].selfemployed) {
       selfemployed = true;
     }
-    var line = new Line(name, color, description,selfemployed);
+    var line = new Line(name, color, description, selfemployed);
     for (var i = 0; i < stationsName.length; i++) {
       var stationName = stationsName[i];
       line.addStation(FindStation(stationName, stations));
@@ -179,6 +190,12 @@ function RanderSVG(path, lines, stations, parentID) {
       .attr("x2", 10 + 16 * 4 + 10 + 5)
       .attr("y2", 26 * (i + 1) + 10 + 8)
       .attr("stroke-width", 5)
+      .attr("stroke-dasharray", function() {
+        if (line.selfemployed) {
+          return "3,3";
+        }
+        return ""
+      })
       .attr("stroke", lColor);
   }
 
@@ -393,10 +410,10 @@ function RenderLineMap(line, edges, parentID) {
     .enter()
     .append("circle");
   circle.attr("cx", function(station) {
-      return 25 - x_min / 10 + station.location[0].x / 10
+      return 25 - x_min / 10 + station.centerpoint().x / 10
     })
     .attr("cy", function(station) {
-      return 25 - z_min / 10 + station.location[0].z / 10
+      return 25 - z_min / 10 + station.centerpoint().z / 10
     })
     .attr("r", 4)
     .attr("stroke", "black")
@@ -410,6 +427,9 @@ function RenderLineMap(line, edges, parentID) {
   var paths = [];
   for (i in edges) {
     var edge = edges[i];
+    if (IsDuplicatePath(edge, edges)) {
+        continue;
+    }
     if (edge.line == line) {
       if (edge.polyline.length > 0) {
         paths.push([edge.start, edge.end, edge.polyline]);
@@ -424,10 +444,12 @@ function RenderLineMap(line, edges, parentID) {
 
     path_g.attr("points", function(p) {
         if (p.length == 2) {
-          var x1 = 25 - x_min / 10 + p[0].location[0].x / 10;
-          var y1 = 25 - z_min / 10 + p[0].location[0].z / 10;
-          var x2 = 25 - x_min / 10 + p[1].location[0].x / 10;
-          var y2 = 25 - z_min / 10 + p[1].location[0].z / 10;
+          var centerpoint1 = p[0].centerpoint();
+          var centerpoint2 = p[1].centerpoint();
+          var x1 = 25 - x_min / 10 + centerpoint1.x / 10;
+          var y1 = 25 - z_min / 10 + centerpoint1.z / 10;
+          var x2 = 25 - x_min / 10 + centerpoint2.x / 10;
+          var y2 = 25 - z_min / 10 + centerpoint2.z / 10;
           return x1 + "," + y1 + " " + x2 + "," + y2;
         } else {
           var result = "";
@@ -441,6 +463,7 @@ function RenderLineMap(line, edges, parentID) {
       })
       .attr("fill", "none")
       .attr("stroke-width", 5)
+      .attr("stroke-linecap", "round")
       .attr("stroke-dasharray", function(p) {
         if (line.selfemployed) {
           return "10,10";
