@@ -41,7 +41,7 @@
         </div>
       </nav>
       <div class="card text-center">
-        <div id="map" class="card-body"></div>
+        <div id="map" class="card-body" style="overflow: auto"></div>
         <div class="card-body"><a href="https://github.com/JiYouMCC/zamsub/issues" target="_blank"><button type="button" class="btn btn-link">纠错</button></a></div>
         <div class="card-body">Power by <a href="https://pages.github.com" target="_blank">Github Page</a></div>
       </div>
@@ -50,121 +50,6 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="https://d3js.org/d3.v5.js"></script>
   <script src="js/class.js"></script>
-  <script src="js/data.js"></script>  
-  <script type="text/javascript">
-    var stations = InitStation(subData);
-    var lines = InitLine(subData, stations);
-    var edges = InitEdge(subData, stations, lines);
-    var x_min = Number.MAX_VALUE;
-    var x_max = -Number.MAX_VALUE;
-    var z_min = Number.MAX_VALUE;
-    var z_max = -Number.MAX_VALUE;
-    for (i in stations) {
-      var locations = stations[i].location;
-      var x = 0;
-      var y = 0;
-      var z = 0;
-      for (j in locations) {
-        x += locations[j].x;
-        y += locations[j].y;
-        z += locations[j].z;
-      }
-      x /= locations.length;
-      y /= locations.length;
-      z /= locations.length;
-      if (x < x_min) {
-        x_min = x;
-      }
-      if (z < z_min) {
-        z_min = z;
-      }
-      if (x > x_max) {
-        x_max = x;
-      }
-      if (z > z_max) {
-        z_max = z;
-      }
-    }
-    var width = 10 + (x_max - x_min) / 10 + 10;
-    var height = 10 + (z_max - z_min) / 10 + 10;
-
-    var svg = d3.select("#map")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    //分组
-    var gPath = svg.append("g");
-    var gPoint = svg.append("g");
-    var gStation = svg.append("g");
-    var gLine = svg.append("g");
-
-    //点
-    var circle = gPoint.selectAll("circle")
-      .data(stations)
-      .enter()
-      .append("circle");
-    circle.attr("cx", function(station) {
-      return 10 - x_min / 10 + station.location[0].x / 10
-    })
-      .attr("cy", function(station) {
-        return 10 - z_min / 10 + station.location[0].z / 10
-      })
-        .attr("r", 5)
-        .attr("stroke", "black")
-        .attr("fill", "white")
-        .attr("stroke-width", "2")
-        .append("svg:title")
-        .text(function(station) { return station.name; });
-
-    var paths = [];
-    for (i in edges){
-        var path = subData.paths[i];
-        var edge = edges[i];
-        if (IsDuplicatePath(edge, edges)) {
-          continue;
-        }
-        if (edge.polyline.length > 0) {
-          paths.push([edge.start, edge.end, edge.polyline]);
-        } else {
-          paths.push([edge.start, edge.end]);
-        }
-    }
-    var path_g = gPath.selectAll("polyline")
-      .data(paths)
-      .enter()
-      .append("polyline");
-
-    path_g.attr("points", function(p) {
-      if (p.length == 2) {
-          var x1 = 10 - x_min / 10 + p[0].location[0].x / 10;
-          var y1 = 10 - z_min / 10 + p[0].location[0].z / 10;
-          var x2 = 10 - x_min / 10 + p[1].location[0].x / 10;
-          var y2 = 10 - z_min / 10 + p[1].location[0].z / 10;
-          return x1 + "," + y1 + " " + x2 + "," + y2;
-        } else {
-          var result = "";
-          for (var i = 0; i < p[2].length; i++) {
-            var x = 10 - x_min / 10 + p[2][i].x / 10;
-            var y = 10 - z_min / 10 + p[2][i].z / 10;
-            result += x +"," + y + " ";
-          }
-          return result;
-        }
-    })
-      .attr("fill", "none")
-      .attr("stroke-width", 5)
-      .attr("stroke-linecap", "round")
-      .attr("stroke-dasharray", function(p) {
-        var line = FindLine(p[0], p[1], lines);
-        if (line.selfemployed) {
-          return "10,10";
-        }
-        return ""
-      })
-      .attr("stroke", function(p) {
-        var line = FindLine(p[0], p[1], lines);
-        return line.color;
-      });
-  </script>
+  <script src="js/data.js"></script>
+  <script src="js/map.js"></script>
 </html>
