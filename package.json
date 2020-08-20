@@ -1,0 +1,18 @@
+{
+    "name": "zamsub",
+    "description": "Query tool for Zamcraft subway system",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JiYouMCC/zamsub.git"
+    },
+    "author": "Ji You",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/JiYouMCC/zamsub/issues"
+    },
+    "homepage": "https://zamsub.jithee.name",
+    "dependencies": {
+        "github-buttons":"latest"
+    }
+}
