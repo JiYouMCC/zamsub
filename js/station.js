@@ -136,6 +136,28 @@ function innerUpdate(stationName) {
   window.scrollTo(0, 0);
 }
 
+function GetD(x, z, station){
+    var location = station.centerpoint();
+    return Math.abs(location.x - x) + Math.abs(location.z - z)
+}
+
+function getNearestStation() {
+  var x = document.getElementById("location_x").value;
+  var z = document.getElementById("location_z").value;
+  document.getElementById("stations_input").value = "";
+  var minD = Number.MAX_VALUE;
+  var results = null;
+  for( i in stations) {
+      if (GetD(x, z, stations[i]) < minD) {
+          minD = GetD(x, z, stations[i]);
+          results = stations[i];
+      }
+  }
+  document.getElementById("distance").innerText = minD;
+  console.log(minD);
+  innerUpdate(results.name);
+}
+
 var stations = InitStation(subData);
 var lines = InitLine(subData, stations);
 var edges = InitEdge(subData, stations, lines);
