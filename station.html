@@ -37,53 +37,50 @@
           </form>
         </div>
       </nav>
-      <ul class="nav justify-content-center nav-tabs" id="queryWay" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="name-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">站名查找</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="location-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">位置查找</a>
-        </li>
-      </ul>
       <div class="card text-center">
+        <ul class="nav justify-content-center nav-tabs" id="queryWay" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="name-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">站名查找</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="location-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">位置查找</a>
+          </li>
+        </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="name-tab">
-            
-              <div class="card-body">
-                <div class="form-inline justify-content-center">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">线路</div>
-                    </div>
-                    <select class="form-control" id="lines" onchange="updateStation(stations, lines);"></select>
+            <div class="card-body">
+              <div class="form-inline justify-content-center">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">线路</div>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">站点</div>
-                    </div>
-                    <input class="form-control" id="stations_input" list="stations" onchange="updateInfo();setLinkParam();" /><datalist id="stations" onchange="updateInfo();"></datalist>
+                  <select class="form-control" id="lines" onchange="updateStation(stations, lines);"></select>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">站点</div>
                   </div>
+                  <input class="form-control" id="stations_input" list="stations" onchange="updateInfo();setLinkParam();" /><datalist id="stations" onchange="updateInfo();"></datalist>
                 </div>
               </div>
             </div>
-
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="location-tab">
-
-        <div class="card-body">
-          <div class="form-inline justify-content-center">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">坐标</div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="location-tab">
+            <div class="card-body">
+              <div class="form-inline justify-content-center">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">坐标</div>
+                  </div>
+                  <input type="number" class="form-control" placeholder="x" id="location_x" onchange="getNearestStation();">
+                  <input type="number" class="form-control" placeholder="z" id="location_z" onchange="getNearestStation();">
+                </div>
               </div>
-              <input type="number" class="form-control" placeholder="x" id="location_x" onchange="getNearestStation();">
-              <input type="number" class="form-control" placeholder="z" id="location_z" onchange="getNearestStation();">
+              <div class="card-body">
+                <p>最近的站点在<span id="direction">？？</span>方向<span id="distance">？？</span>米外</p>
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            <p>最近的站点在<span id="distance">？？？</span>米外</p>
-          </div>
-        </div>
-      </div>
         </div>
         <h2 class="card-title" id="s_title"></h2>
         <img id="s_img" src='img/station_none.svg' class="img-thumbnail mx-auto d-block" alt="...">

@@ -91,7 +91,7 @@ function updateInfo() {
     table = document.getElementById("s_lines");
     document.getElementById("s_lines").innerText = "";
     // 按照拼音排序
-    relatedLines = relatedLines.sort(function(line1, line2){
+    relatedLines = relatedLines.sort(function(line1, line2) {
       return line1.name.localeCompare(line2.name)
     });
     for (i in relatedLines) {
@@ -110,23 +110,23 @@ function updateInfo() {
 
 function getLinkParam() {
   var linkStr = document.URL.split('?');
-    if (linkStr.length < 2) {
-        return;
-    }
-    var param = linkStr[1];
-    var params = param.split('&')
-    var result = {};
-    for (p in params) {
-        var keyvalue = params[p].split('=');
-        result[keyvalue[0]] = decodeURI(keyvalue[1])
-    }
-    document.getElementById('stations_input').value = result.station;
-    updateInfo();
+  if (linkStr.length < 2) {
+    return;
+  }
+  var param = linkStr[1];
+  var params = param.split('&')
+  var result = {};
+  for (p in params) {
+    var keyvalue = params[p].split('=');
+    result[keyvalue[0]] = decodeURI(keyvalue[1])
+  }
+  document.getElementById('stations_input').value = result.station;
+  updateInfo();
 }
 
 function setLinkParam() {
-    var station = document.getElementById('stations_input').value;
-    window.history.pushState('', '', '?station=' + station);
+  var station = document.getElementById('stations_input').value;
+  window.history.pushState('', '', '?station=' + station);
 }
 
 function innerUpdate(stationName) {
@@ -136,9 +136,9 @@ function innerUpdate(stationName) {
   window.scrollTo(0, 0);
 }
 
-function GetD(x, z, station){
-    var location = station.centerpoint();
-    return Math.abs(location.x - x) + Math.abs(location.z - z)
+function GetD(x, z, station) {
+  var location = station.centerpoint();
+  return Math.abs(location.x - x) + Math.abs(location.z - z)
 }
 
 function getNearestStation() {
@@ -147,14 +147,43 @@ function getNearestStation() {
   document.getElementById("stations_input").value = "";
   var minD = Number.MAX_VALUE;
   var results = null;
-  for( i in stations) {
-      if (GetD(x, z, stations[i]) < minD) {
-          minD = GetD(x, z, stations[i]);
-          results = stations[i];
-      }
+  for (i in stations) {
+    if (GetD(x, z, stations[i]) < minD) {
+      minD = GetD(x, z, stations[i]);
+      results = stations[i];
+    }
   }
   document.getElementById("distance").innerText = minD;
-  console.log(minD);
+  var g_x = results.centerpoint().x - x;
+  var g_z = results.centerpoint().z - z;
+  var t_direction = "??";
+  if (g_x > 0) {
+    if (g_z > 0) {
+      t_direction = "西南";
+    } else if (g_z < 0) {
+      t_direction = "西北";
+    } else {
+      t_direction = "正西";
+    }
+  } else if (g_x < 0) {
+    if (g_z > 0) {
+      t_direction = "东南";
+    } else if (g_z < 0) {
+      t_direction = "东北";
+    } else {
+      t_direction = "正东";
+    }
+  } else {
+    if (g_z > 0) {
+      t_direction = "正南";
+    } else if(g_z < 0) {
+      t_direction = "正北";
+    } else{
+      t_direction = "原地右转180°再左转180°";
+    }
+  }
+
+  document.getElementById("direction").innerText = t_direction;
   innerUpdate(results.name);
 }
 
