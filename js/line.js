@@ -74,6 +74,9 @@ function updateInfo() {
       table.appendChild(tr);
     }
   }
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 }
 
 function getLinkParam() {
