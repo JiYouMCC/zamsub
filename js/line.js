@@ -75,8 +75,8 @@ function updateInfo() {
     }
   }
   $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $('[data-toggle="tooltip"]').tooltip()
+  });
 }
 
 function getLinkParam() {
