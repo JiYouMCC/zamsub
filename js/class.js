@@ -419,10 +419,9 @@ function RenderLineMap(line, edges, parentID) {
     .attr("stroke", "black")
     .attr("fill", "white")
     .attr("stroke-width", "2")
-    .append("svg:title")
-    .text(function(station) {
-      return station.name;
-    });
+    .attr("data-toggle", "tooltip")
+    .attr("data-placement", "top")
+    .attr("title", function(station) { return station.name});
 
   var paths = [];
   for (i in edges) {
