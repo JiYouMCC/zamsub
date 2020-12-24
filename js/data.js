@@ -608,9 +608,6 @@ var subData = {
         "橘子的家": {
             "location": [1919, 40, 160]
         },
-        "lost的家": {
-            "location": [1918, 40, -240]
-        },
         "Byepast家旧址": {
             "location": [1920, 40, -375]
         },
@@ -860,7 +857,7 @@ var subData = {
         },
         "东方线": {
             "color": "#993399",
-            "stations": ["中央枢纽", "橘子的家", "lost的家", "Byepast家旧址", "福原枢纽", "KK的安置房", "猫音小村", "艾德拉斯军事基地", "风车镇"],
+            "stations": ["中央枢纽", "橘子的家", "Byepast家旧址", "福原枢纽", "KK的安置房", "猫音小村", "艾德拉斯军事基地", "风车镇"],
             "description": "东方线由Byepast建造，魔瓶改造，赞铁一局代运营。修建初衷为连通中央枢纽与Byepast的家，后延长至风车镇。2018年4月17日前开通。"
         },
         "二狗线": {
@@ -2652,19 +2649,11 @@ var subData = {
             "line": "东方线"
         }, {
             "start": "橘子的家",
-            "end": "lost的家",
-            "line": "东方线"
-        }, {
-            "start": "lost的家",
-            "end": "橘子的家",
-            "line": "东方线"
-        }, {
-            "start": "lost的家",
             "end": "Byepast家旧址",
             "line": "东方线"
         }, {
             "start": "Byepast家旧址",
-            "end": "lost的家",
+            "end": "橘子的家",
             "line": "东方线"
         }, {
             "start": "Byepast家旧址",
