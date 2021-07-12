@@ -1469,10 +1469,10 @@ var subData = {
             "line": "K4线"
         }, {
             "start": "阿云台",
-            "end": "终南山南",
+            "end": "终南山",
             "line": "K4线"
         }, {
-            "start": "终南山南",
+            "start": "终南山",
             "end": "阿云台",
             "line": "K4线"
         }, {
