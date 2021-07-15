@@ -451,12 +451,20 @@ function RenderLineMap(line, edges, parentID) {
           var y2 = 25 - z_min / 10 + centerpoint2.z / 10;
           return x1 + "," + y1 + " " + x2 + "," + y2;
         } else {
-          var result = "";
-          for (var i = 0; i < p.length; i++) {
-            var x = 25 - x_min / 10 + p[2][i].x / 10;
-            var y = 25 - z_min / 10 + p[2][i].z / 10;
-            result += x + "," + y + " ";
+          var centerpoint1 = p[0].centerpoint();
+          var centerpoint2 = p[1].centerpoint();
+          var x1 = 25 - x_min / 10 + centerpoint1.x / 10;
+          var y1 = 25 - z_min / 10 + centerpoint1.z / 10;
+          var x2 = 25 - x_min / 10 + centerpoint2.x / 10;
+          var y2 = 25 - z_min / 10 + centerpoint2.z / 10;
+          var points = p[2];
+          var result = x1 + "," + y1;
+          for (var i = 0; i < points.length; i++) {
+            var x = 25 - x_min / 10 + points[i].x / 10;
+            var y = 25 - z_min / 10 + points[i].z / 10;
+            result += " " + x + "," + y;
           }
+          result += " " + x2 + "," + y2;
           return result;
         }
       })
