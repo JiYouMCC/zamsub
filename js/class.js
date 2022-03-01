@@ -25,12 +25,13 @@ function Station(name, location, description, img) {
 }
 
 // class 线路
-function Line(name, color, description, selfemployed) {
+function Line(name, color, description, selfemployed, fastline) {
   this.name = name;
   this.description = description || '这个地铁线路很懒，还没介绍自己。';
   this.stations = [];
   this.color = color;
   this.selfemployed = selfemployed;
+  this.fastline = fastline;
   this.addStation = function(station) {
     if (!this.stations.includes(station)) {
       this.stations.push(station);
@@ -46,6 +47,9 @@ function Edge(start, end, stationArray, line, polyline) {
   this.stationArray = stationArray || [0, 0];
   this.distance = Distance(start, end, stationArray);
   this.polyline = polyline;
+  if (line.fastline) {
+    this.distance -= 1
+  }
 }
 
 // function 初始化
@@ -76,10 +80,14 @@ function InitLine(data, stations) {
     var color = data.lines[name].color;
     var description = data.lines[name].description;
     var selfemployed = false;
+    var fastline = false;
     if (data.lines[name].selfemployed) {
       selfemployed = true;
     }
-    var line = new Line(name, color, description, selfemployed);
+    if (data.lines[name].fastline) {
+      fastline = true;
+    }
+    var line = new Line(name, color, description, selfemployed, fastline);
     for (var i = 0; i < stationsName.length; i++) {
       var stationName = stationsName[i];
       line.addStation(FindStation(stationName, stations));
@@ -118,7 +126,7 @@ function FindStation(name, stations) {
 }
 
 function FindLine(station1, station2, lines) {
-  return lines.find(i => i.stations.includes(station1) && i.stations.includes(station2));
+    return lines.findLast(i => i.stations.includes(station1) && i.stations.includes(station2));
 }
 
 function GetLine(name, lines) {
@@ -139,6 +147,9 @@ function GetLines(station, lines) {
 function Distance(station1, station2, index) {
   if (index == undefined) {
     index = [0, 0];
+  }
+  if (station1 == undefined) {
+    console.log(1)
   }
   var location1 = station1.location[index[0]];
   var location2 = station2.location[index[1]];
