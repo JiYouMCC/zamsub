@@ -126,7 +126,18 @@ function FindStation(name, stations) {
 }
 
 function FindLine(station1, station2, lines) {
-    return lines.findLast(i => i.stations.includes(station1) && i.stations.includes(station2));
+  var result = [];
+  for (index in lines) {
+    var line = lines[index];
+    if (line.stations.includes(station1) && line.stations.includes(station2)) {
+      result.push(line);
+    }
+  }
+  if (result.length == 1) {
+    return result[0];
+  } else {
+    return result.find(i => i.fastline == true);
+  }
 }
 
 function GetLine(name, lines) {
