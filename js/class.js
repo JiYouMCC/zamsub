@@ -148,9 +148,6 @@ function Distance(station1, station2, index) {
   if (index == undefined) {
     index = [0, 0];
   }
-  if (station1 == undefined) {
-    console.log(1)
-  }
   var location1 = station1.location[index[0]];
   var location2 = station2.location[index[1]];
   return Math.abs(location1.x - location2.x) + Math.abs(location1.z - location2.z)
