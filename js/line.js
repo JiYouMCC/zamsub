@@ -79,6 +79,10 @@ function updateInfo() {
   });
 }
 
+function toggleTips() {
+  $('[data-toggle="tooltip"]').tooltip("toggle")
+}
+
 function getLinkParam() {
   var linkStr = document.URL.split('?');
     if (linkStr.length < 2) {

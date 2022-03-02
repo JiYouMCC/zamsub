@@ -125,19 +125,14 @@ function FindStation(name, stations) {
   return stations.find(i => i.name == name);
 }
 
-function FindLine(station1, station2, lines) {
-  var result = [];  
-  for (index in lines) {
-    var line = lines[index];
-    if (line.stations.includes(station1) && line.stations.includes(station2)) {
-      result.push(line);
-    }
+function FindLine(station1, station2, edges) {
+  var edge = edges.find(i => i.start == station1 && i.end == station2);
+  if (edge == null) {
+    edge = edges.find(i => i.start == station2 && i.end == station1);
   }
-  var fastline = result.find(i => i.fastline == true);
-  if (fastline) {
-    return fastline;
-  } else {
-    return result[0];
+
+  if (edge) {
+    return edge.line;
   }
 }
 
@@ -182,7 +177,7 @@ function ConvertTime(length) {
   return result;
 }
 
-function RanderSVG(path, lines, stations, parentID) {
+function RanderSVG(path, lines, stations, parentID, edges) {
   // 画布
   var width = 10 + 16 * 4 + 10 + 10 + 10 + 16 * 10 + 10;
   var height = path.length * 26 + 10;
@@ -202,7 +197,7 @@ function RanderSVG(path, lines, stations, parentID) {
   for (var i = 0; i < path.length - 1; i++) {
     var start = path[i];
     var end = path[i + 1];
-    var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
+    var line = FindLine(FindStation(start, stations), FindStation(end, stations), edges);
     var lColor = line.color;
     gPath.append("line")
       .attr("x1", 10 + 16 * 4 + 10 + 5)
@@ -255,7 +250,7 @@ function RanderSVG(path, lines, stations, parentID) {
   for (var i = 0; i < path.length - 1; i++) {
     var start = path[i];
     var end = path[i + 1];
-    var line = FindLine(FindStation(start, stations), FindStation(end, stations), lines);
+    var line = FindLine(FindStation(start, stations), FindStation(end, stations), edges);
     if (oldLine == line.name) {
       continue;
     }

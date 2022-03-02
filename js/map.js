@@ -95,20 +95,20 @@ path_g.attr("points", function(p) {
     .attr("stroke-width", 5)
     .attr("stroke-linecap", "round")
     .attr("stroke-dasharray", function(p) {
-        var line = FindLine(p[0], p[1], lines);
+        var line = FindLine(p[0], p[1], edges);
         if (line.selfemployed) {
             return "10,10";
         }
         return ""
     })
     .attr("stroke", function(p) {
-        var line = FindLine(p[0], p[1], lines);
+        var line = FindLine(p[0], p[1], edges);
         return line.color;
     })
     .attr("data-toggle", "tooltip")
     .attr("data-placement", "top")
     .attr("title", function(p) { 
-        var line = FindLine(p[0], p[1], lines);
+        var line = FindLine(p[0], p[1], edges);
         return line.name;
     });
 $(function () {

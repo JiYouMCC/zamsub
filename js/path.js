@@ -101,7 +101,7 @@ function getResult() {
     }
 
     document.getElementById("result_length").innerText = length.toString() + "米(约" + ConvertTime(length) + ")";
-    RanderSVG(path, lines, stations, "result_svg");
+    RanderSVG(path, lines, stations, "result_svg", edges);
 }
 
 function getLinkParam() {
